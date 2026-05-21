@@ -3,7 +3,32 @@
 // Topachat, Cybertek, Grosbill, HP Store FR, Dell.fr, Lenovo.fr,
 // Fnac, Darty, Boulanger, Amazon.fr, idealo.fr, ledenicheur.fr.
 // Sujets à variation.
+//
+// Profil cible (Ghaliya, étudiante 3D / Animation / Jeux Vidéo) :
+// - Logiciels : Unreal Engine 5/6, Blender, Maya, 3ds Max, ZBrush,
+//   Substance Painter, After Effects
+// - Durabilité visée : 2031-2032 (5-6 ans)
+// - Budget cible PC seul : ~2 100 € (extensible à 3 000 € pour vrai
+//   future-proof)
+// - Exigences minimales : VRAM 12 Go (idéal 16), RAM 32 Go (idéal 64),
+//   CPU 8+ cores performants, NVMe Gen4
 // ============================================================
+
+// ----- Fiabilité par marque (sources : Trustpilot, Reddit, presse FR, GamersNexus, Tom's Hardware)
+const RELIABILITY = {
+  'LDLC':         { stars: 5, trustpilot: '4,4/5 · 201 339 avis', note: 'Garantie 5 ans étendue (mars 2026). Composants 100 % standards, ConfigOMatic flexible, SAV français reconnu. RÉFÉRENCE.' },
+  'Materiel.net': { stars: 5, trustpilot: '4,0/5 · 29 614 avis',  note: 'Garantie 5 ans (depuis déc. 2025). Assemblage à la main à Nantes, tests poussés. Équivalent direct LDLC (même groupe).' },
+  'Topachat':     { stars: 4, trustpilot: '4,3/5 · 13 868 avis',  note: 'Bon assembleur. Garantie 2 ans légale + 1 an commerciale (pas 5 ans comme LDLC).' },
+  'Cybertek':     { stars: 3, trustpilot: '4,0/5 · 5 661 avis',   note: 'Conseillers magasin compétents, MAIS SAV après-vente faible ("présent pour vendre, absent après"). Garantie 2 ans.' },
+  'Grosbill':     { stars: 3, trustpilot: '4,3/5 · 10 574 avis',  note: 'Racheté par Cybertek 09/2024. Polarisation des avis (70 % 5★, 11 % 1★). Cas de PC arrivés cassés.' },
+  'PCSpecialist': { stars: 5, trustpilot: 'Excellent FR + UK',    note: 'Garantie 3 ans MO + 2 ans pièces, montage main + benchmark, hotline francophone. Très bonne réputation.' },
+  'HP':           { stars: 4, trustpilot: 'Variable selon gamme', note: 'Z2 Tower G9 = workstation ISV-certifiée UE5 (3 ans On-Site NBD). Omen 35L/45L gaming : carte mère propriétaire, upgrade plafonné.' },
+  'Lenovo':       { stars: 5, trustpilot: 'Légion / ThinkStation très bien notés', note: 'ThinkStation P3 = ISV-certifiée UE5, scores SPECviewperf top (691 Maya). Legion Tower 7i Gen 10 = carte mère ATX standard (rare !).' },
+  'Dell':         { stars: 2, trustpilot: 'Plaintes massives Aurora R16', note: 'XPS 8960 / Alienware Aurora R16 : PSU propriétaire, 2 slots DIMM, BIOS verrouillé. Plaintes Intel 13/14 documentées. À ÉVITER long terme.' },
+  'ASUS':         { stars: 3, trustpilot: 'ROG G700 bien noté', note: 'ROG G700 (full tower, composants standards) recommandé par Tom\'s Hardware. G22CH SFF : GamersNexus "worst pre-built ever reviewed".' },
+  'MSI':          { stars: 4, trustpilot: 'Variable',          note: 'MPG Infinite X3 (carte mère MSI ATX standard) = bonne évolutivité. MAG Infinite S3 (mATX propriétaire) = plus limité. Garantie 2 ans.' },
+  'Acer':         { stars: 3, trustpilot: 'Variable selon gamme', note: 'Predator Orion 7000 (2025) bien amélioré (thermique, bruit). Orion 3000 entrée de gamme déconseillée. Carte mère propriétaire.' }
+};
 
 const PC_PREBUILT = [
   // ============= < 1 200 € =============
@@ -28,6 +53,11 @@ const PC_PREBUILT = [
     casing: 'Mini-tour 17L',
     warranty: '2 ans Lenovo',
     url: 'https://www.darty.com/nav/achat/ref/MC352507481.html',
+    highlight: {
+      type: 'warning',
+      label: '⚠ À éviter pour profil 3D/UE5',
+      reason: 'Gamme LOQ = entrée de gamme, Digital Trends/Windows Central : "le moins de valeur de Lenovo". Sous-dimensionné pour UE5 sur 5-6 ans (8 Go VRAM, 16 Go RAM, alim 380W propriétaire). OK pour Blender léger uniquement.'
+    },
     pros: [
       'Tarif imbattable < 900 € pour une RTX 5060 récente',
       'Châssis sobre adapté à un bureau étudiant',
@@ -350,6 +380,11 @@ const PC_PREBUILT = [
     casing: 'SFF (~14 L, taille PS5)',
     warranty: '2 ans ASUS',
     url: 'https://www.fnac.com/G22CH-71470F127W-2-1-32G-1TB-SSD-PCIE-G4-Nvidia-GeForce-RTX-4060/a20699229/w-4',
+    highlight: {
+      type: 'warning',
+      label: '⚠ Verdict GamersNexus : « worst pre-built »',
+      reason: 'GamersNexus (janv. 2025) a noté le G22CH comme "the worst pre-built we\'ve ever reviewed" : i9-14900KF downclocké de 1,3 GHz sans option de modification, ventilateurs bruyants, SFF qui plafonne. À éviter formellement pour la 3D.'
+    },
     pros: [
       'i7-14700F excellent pour viewport Maya/ZBrush',
       '32 Go d\'office, finitions ROG premium',
@@ -605,6 +640,11 @@ const PC_PREBUILT = [
     casing: 'Fox Spirit AG1',
     warranty: '5 ans',
     url: 'https://www.materiel.net/produit/202603020056.html',
+    highlight: {
+      type: 'best-value',
+      label: '💰 Bon plan budget Ghaliya',
+      reason: 'Pile dans la cible budget (~2 000 €). RTX 5070 Gainward Phoenix III 12 Go = OptiX pour Cycles/UE5. Garantie 5 ans Materiel.net = SAV pro. i5-14400F 10c suffit pour compilation shaders UE5. VRAM 12 Go = OK jusqu\'en 2028-2029.'
+    },
     pros: [
       'Configuration polyvalente Blender/Maya/3ds Max',
       'i5-14400F 10 cœurs : rendu CPU + multitâche',
@@ -636,6 +676,11 @@ const PC_PREBUILT = [
     casing: 'Corsair Frame 4000D RS ARGB',
     warranty: '2 ans',
     url: 'https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-2078-166636.aspx',
+    highlight: {
+      type: 'best-value',
+      label: '💰 Bon plan budget Ghaliya',
+      reason: 'Plateforme AM5 = upgrade futur vers Ryzen 9000/10000 sans changer la carte mère (essentiel pour viser 2031). RTX 5070 12 Go ASUS Dual + alim Corsair RM850e Gold ATX 3.1 = base solide pour ajouter une RTX 5080/5090 plus tard. Watercooling Corsair 360 = silence sous compilation UE5.'
+    },
     pros: [
       'Ryzen 7 8700F (8c) + DDR5 6000 : équilibre solide',
       'Alim Corsair RM850e Gold ATX 3.1 = pérenne',
@@ -668,6 +713,11 @@ const PC_PREBUILT = [
     casing: 'Moyenne tour ~31L',
     warranty: '1 an Premium Support (extensible 3 ans)',
     url: 'https://www.dell.com/fr-fr/shop/notre-gamme-pro/ordinateur-de-bureau-xps/spd/xps-8960-desktop',
+    highlight: {
+      type: 'warning',
+      label: '⚠ Bridages propriétaires Dell',
+      reason: 'PSU propriétaire (formats Acbel/LiteOn non remplaçables par ATX standard), seulement 2 slots DIMM (max 64 Go), BIOS verrouillé. Évolutivité plafonnée à 3-4 ans. À éviter pour viser 2031.'
+    },
     pros: [
       'Châssis Dell sobre et silencieux',
       'RTX 4070 Super 12 Go encore très bonne pour 3D',
@@ -700,6 +750,11 @@ const PC_PREBUILT = [
     casing: 'Moyenne tour ThinkStation',
     warranty: '3 ans Premier Support On-Site',
     url: 'https://www.lenovo.com/fr/fr/p/workstations/thinkstationp/lenovo-thinkstation-p3-tower-gen-2-intel-workstation/30htcto1wwfr1',
+    highlight: {
+      type: 'pro',
+      label: '🛠 Workstation pro certifiée Unreal Engine',
+      reason: 'ISV-certifiée Autodesk, Adobe, Unreal Engine. Scores SPECviewperf 2020 : 691 Maya, 260 3ds Max (top du marché). Garantie 3 ans On-Site NBD (intervention à domicile J+1) = sécurité absolue pour étudiant pro. Conçue pour durer 5-7 ans.'
+    },
     pros: [
       'RTX A4000 16 Go avec drivers Studio certifiés',
       'Certifications ISV (Autodesk, Adobe, Dassault)',
@@ -923,6 +978,11 @@ const PC_PREBUILT = [
     casing: 'Moyenne tour Z2',
     warranty: '3 ans HP On-Site NBD',
     url: 'https://www.hp.com/fr-fr/shop/product.aspx?id=8t1n2ea&opt=abf&sel=dtp',
+    highlight: {
+      type: 'pro',
+      label: '🛠 Workstation pro certifiée Unreal Engine',
+      reason: 'HP Z = officiellement certifié Unreal Engine par HP (ISV partner). Garantie 3 ans On-Site Next Business Day standard. StorageReview : "très silencieux, démarrage ultra-rapide, refroidissement maîtrisé". Si vous visez un usage pro long terme (studio, freelance), c\'est l\'investissement durable.'
+    },
     pros: [
       'Drivers Studio certifiés Maya/ZBrush/Solidworks',
       'Garantie 3 ans On-Site Next Business Day',
@@ -988,6 +1048,11 @@ const PC_PREBUILT = [
     casing: 'Corsair 4000D Airflow + AIO 360',
     warranty: '5 ans',
     url: 'https://www.materiel.net/produit/202603020141.html',
+    highlight: {
+      type: 'top-match',
+      label: '⭐ Top pick Ghaliya — équilibré',
+      reason: 'Le meilleur compromis profil 3D/UE5/Animation : Ultra 7 265KF 20 cœurs (top pour compilation shaders UE5), RTX 5070 Ti 16 Go Gainward (VRAM future-proof 2030+), 32 Go DDR5 6000, AIO 360 mm pour rendus longs silencieux, alim be quiet! Gold ATX 3.1, garantie 5 ans Materiel.net. À 2 600 € c\'est l\'investissement le plus pertinent.'
+    },
     pros: [
       'Core Ultra 7 265KF 20 cœurs + NPU',
       'AIO 360 mm : silence et fréquences soutenues',
@@ -1019,6 +1084,11 @@ const PC_PREBUILT = [
     casing: 'Moyenne tour Alienware + AIO 240',
     warranty: '1 an Premium Support',
     url: 'https://www.dell.com/fr-fr/shop/notre-gamme-pro/ordinateur-de-bureau-gaming-alienware-aurora/spd/alienware-aurora-act1250-gaming-desktop',
+    highlight: {
+      type: 'warning',
+      label: '⚠ Plaintes massives Aurora R16',
+      reason: 'Thread Dell Community "Aurora R16, my nightmare". Problèmes Intel 13e/14e gen documentés (crashes répétés, retours SAV multiples). CM propriétaire + PSU custom + 2 slots RAM = plafond rapide. Tom\'s Hardware critique. À éviter long terme.'
+    },
     pros: [
       'Watercooling CPU d\'origine = silencieux',
       'Alim 1000W Platinum',
@@ -1052,6 +1122,11 @@ const PC_PREBUILT = [
     casing: 'Corsair Frame 4000D RS ARGB',
     warranty: '2 ans',
     url: 'https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-2032-166035.aspx',
+    highlight: {
+      type: 'top-match',
+      label: '⭐ Top pick Ghaliya — viewport UE5/Maya',
+      reason: 'Ryzen 7 9800X3D (cache 3D de 96 Mo) = champion incontesté pour le viewport Maya/ZBrush et la fluidité UE5 en édition. RTX 5070 Ti 16 Go ASUS PRIME (AIB identifié) future-proof jusqu\'en 2031. SSD 2 To pour projets UE5 lourds (un projet UE5 peut peser 50-200 Go). Plateforme AM5 évolutive vers Ryzen 10000.'
+    },
     pros: [
       'Ryzen 7 9800X3D : top single-thread + cache 96 Mo',
       'VRAM 16 Go RTX 5070 Ti = Blender confortable',
@@ -1367,6 +1442,11 @@ const PC_PREBUILT = [
     casing: 'Fractal Design North Mesh',
     warranty: '5 ans Materiel.net',
     url: 'https://www.materiel.net/produit/202509100004.html',
+    highlight: {
+      type: 'future-proof',
+      label: '💎 Future-proof 2031-2032',
+      reason: 'La configuration la plus alignée avec un objectif durabilité 2031-2032 : 9800X3D + RTX 5080 16 Go + 64 Go DDR5 + Samsung 990 PRO 2 To. C\'est le seul PC du catalogue à avoir 64 Go RAM d\'origine, indispensable pour UE5 + Substance Painter + navigateur en parallèle (40 Go+ en usage réel). Garantie 5 ans Materiel.net. Si le budget permet 3 950 €, c\'est l\'investissement le plus pérenne.'
+    },
     pros: [
       '64 Go DDR5 : sweet spot scènes lourdes (Houdini, ZBrush HD)',
       '2 To Samsung 990 PRO + RTX 5080 + X3D',
@@ -1398,6 +1478,11 @@ const PC_PREBUILT = [
     casing: 'Moyen-tour + AIO 360 mm',
     warranty: '5 ans LDLC',
     url: 'https://www.ldlc.com/fiche/PB00675804.html',
+    highlight: {
+      type: 'future-proof',
+      label: '💎 LDLC · garantie 5 ans · top fiabilité',
+      reason: 'LDLC = meilleur Trustpilot du segment (4,4/5 sur 201 339 avis), garantie 5 ans étendue mars 2026, composants 100 % standards (montage français, remplacement pièce facile). Ryzen 9 9950X3D 16c + RTX 5080 + 3 To SSD = workstation hybride top tier. Future-proof 6+ ans.'
+    },
     pros: [
       'Ryzen 9 9950X3D 16 cœurs : top tier rendu CPU + viewport',
       '3 To SSD total : aucune limite',

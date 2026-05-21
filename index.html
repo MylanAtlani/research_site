@@ -66,7 +66,24 @@
   <div class="container">
     <div class="section-header">
       <h2>PC fixes préassemblés</h2>
-      <p>Sélection vérifiée chez LDLC, Materiel.net, Topachat — livraison France. Triés par prix croissant.</p>
+      <p>Sélection vérifiée chez LDLC, Materiel.net, Topachat, Cybertek, HP, Dell, Lenovo, ASUS, MSI, Acer — livraison France. Triés par prix croissant.</p>
+    </div>
+
+    <div class="profile-target">
+      <h3>🎯 Recommandations ciblées — profil étudiant 3D / Animation / Unreal Engine 5</h3>
+      <div class="target-meta">
+        <span class="target-tag">UE5 / UE6</span>
+        <span class="target-tag">Blender · Maya · 3ds Max</span>
+        <span class="target-tag">ZBrush · Substance Painter</span>
+        <span class="target-tag">After Effects · Premiere</span>
+        <span class="target-tag">Durabilité 2031-2032</span>
+        <span class="target-tag">Budget ~2 100 € (extensible 3 000 €)</span>
+      </div>
+      <p>
+        Les badges <strong>⭐ Top pick</strong>, <strong>💰 Bon plan budget</strong>, <strong>💎 Future-proof</strong>, <strong>🛠 Workstation pro</strong> identifient les PC les plus adaptés à ce profil.
+        Les badges <strong>⚠ À éviter</strong> signalent les configurations déconseillées (bridages propriétaires, retours utilisateurs négatifs récurrents, sous-dimensionnement pour UE5).
+        Critères clés : <strong>VRAM ≥ 12 Go</strong> (idéal 16 Go), <strong>RAM ≥ 32 Go DDR5</strong>, <strong>CPU 8+ cœurs</strong>, plateforme évolutive AM5/Z890, garantie 3-5 ans recommandée.
+      </p>
     </div>
 
     <div class="filters">
@@ -139,10 +156,20 @@
       </div>
 
       <div class="filter-group">
+        <label>Recommandation</label>
+        <select id="filter-reco">
+          <option value="">Toutes</option>
+          <option value="top">⭐ Top picks uniquement</option>
+          <option value="hide-warning">Masquer "à éviter"</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
         <label>Trier par</label>
         <select id="sort-by">
           <option value="price-asc">Prix croissant</option>
           <option value="price-desc">Prix décroissant</option>
+          <option value="reco">Recommandés en premier</option>
           <option value="vram-desc">VRAM (plus)</option>
           <option value="ram-desc">RAM (plus)</option>
         </select>

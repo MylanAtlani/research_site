@@ -45,12 +45,28 @@ function pcCardHTML(pc) {
     ? '<span class="stock-badge">En stock</span>'
     : '<span class="stock-badge out">Sur commande</span>';
 
+  let cardClass = 'pc-card';
+  let highlightHtml = '';
+  if (pc.highlight) {
+    const isWarning = pc.highlight.type === 'warning';
+    cardClass += isWarning ? ' has-warning' : ' has-highlight';
+    const cls = {
+      'top-match':    'highlight-top-match',
+      'best-value':   'highlight-best-value',
+      'future-proof': 'highlight-future-proof',
+      'pro':          'highlight-pro',
+      'warning':      'highlight-warning'
+    }[pc.highlight.type] || 'highlight-top-match';
+    highlightHtml = `<div class="highlight-ribbon ${cls}">${escape(pc.highlight.label)}</div>`;
+  }
+
   return `
-    <article class="pc-card" data-id="${escape(pc.id)}">
+    <article class="${cardClass}" data-id="${escape(pc.id)}">
       <div style="display:flex; justify-content:space-between; align-items:center;">
         <span class="card-tier tier-${escape(pc.tier)}">${escape(tierLabel)}</span>
         ${stockHtml}
       </div>
+      ${highlightHtml}
       <div>
         <div class="card-name">${escape(pc.name)}</div>
         <div class="card-vendor"><strong>${escape(pc.brand || pc.vendor)}</strong> &middot; ${escape(pc.vendor)}</div>
@@ -74,6 +90,8 @@ function pcCardHTML(pc) {
   `;
 }
 
+const RECO_ORDER = { 'top-match': 0, 'future-proof': 1, 'best-value': 2, 'pro': 3, '_none_': 4, 'warning': 5 };
+
 function renderPCs() {
   const grid = $('#pc-grid');
   const maxPrice = parseFloat($('#filter-price').value);
@@ -82,7 +100,10 @@ function renderPCs() {
   const minRam = parseInt($('#filter-ram').value, 10);
   const minVram = parseInt($('#filter-vram').value, 10);
   const cpuBrand = $('#filter-cpu').value;
+  const reco = $('#filter-reco').value;
   const sortBy = $('#sort-by').value;
+
+  const TOP_TYPES = new Set(['top-match', 'future-proof', 'best-value', 'pro']);
 
   let list = PC_PREBUILT.filter(pc => {
     if (pc.price > maxPrice) return false;
@@ -91,6 +112,8 @@ function renderPCs() {
     if (pc.ram < minRam) return false;
     if (pc.vram < minVram) return false;
     if (cpuBrand && pc.cpuBrand !== cpuBrand) return false;
+    if (reco === 'top' && !(pc.highlight && TOP_TYPES.has(pc.highlight.type))) return false;
+    if (reco === 'hide-warning' && pc.highlight && pc.highlight.type === 'warning') return false;
     return true;
   });
 
@@ -99,6 +122,10 @@ function renderPCs() {
       case 'price-desc': return b.price - a.price;
       case 'vram-desc':  return b.vram - a.vram || a.price - b.price;
       case 'ram-desc':   return b.ram - a.ram || a.price - b.price;
+      case 'reco':
+        const ra = RECO_ORDER[a.highlight ? a.highlight.type : '_none_'];
+        const rb = RECO_ORDER[b.highlight ? b.highlight.type : '_none_'];
+        return ra - rb || a.price - b.price;
       default:           return a.price - b.price;
     }
   });
@@ -131,6 +158,40 @@ function openModal(id) {
 
   const aib = detectAIB(pc);
   const body = $('#modal-body');
+
+  let recoHtml = '';
+  if (pc.highlight) {
+    const cls = {
+      'top-match':    'highlight-top-match',
+      'best-value':   'highlight-best-value',
+      'future-proof': 'highlight-future-proof',
+      'pro':          'highlight-pro',
+      'warning':      'highlight-warning'
+    }[pc.highlight.type] || 'highlight-top-match';
+    recoHtml = `
+      <div class="modal-section">
+        <div class="highlight-ribbon ${cls}" style="margin-bottom:12px;">${escape(pc.highlight.label)}</div>
+        <div class="recommendation-text"><strong>Pourquoi ce verdict ?</strong> ${escape(pc.highlight.reason)}</div>
+      </div>
+    `;
+  }
+
+  const reliability = (typeof RELIABILITY !== 'undefined' && pc.brand) ? RELIABILITY[pc.brand] : null;
+  let reliabilityHtml = '';
+  if (reliability) {
+    const stars = '★'.repeat(reliability.stars) + '☆'.repeat(5 - reliability.stars);
+    reliabilityHtml = `
+      <div class="modal-section">
+        <h4>Fiabilité &amp; avis utilisateurs</h4>
+        <div class="reliability-block">
+          <h5>${escape(pc.brand)} &middot; ${escape(reliability.trustpilot || '')}</h5>
+          <div class="reliability-stars">${stars}</div>
+          <div class="reliability-note">${escape(reliability.note)}</div>
+        </div>
+      </div>
+    `;
+  }
+
   setMarkup(body, `
     <h3>${escape(pc.name)}</h3>
     <div class="modal-vendor">${escape(pc.vendor)} &middot; garantie ${escape(pc.warranty)}</div>
@@ -139,6 +200,9 @@ function openModal(id) {
       <div class="modal-price">${fmtPrice(pc.price)}</div>
       <div style="color:var(--text-mute); font-size:14px;">${escape(pc.priceNote || '')}</div>
     </div>
+
+    ${recoHtml}
+    ${reliabilityHtml}
 
     <div class="modal-section">
       <h4>Configuration</h4>
@@ -322,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#stat-pcs').textContent = PC_PREBUILT.length;
   $('#stat-screens').textContent = SCREENS.length;
 
-  ['filter-price', 'filter-brand', 'filter-aib', 'filter-ram', 'filter-vram', 'filter-cpu', 'sort-by'].forEach(id => {
+  ['filter-price', 'filter-brand', 'filter-aib', 'filter-ram', 'filter-vram', 'filter-cpu', 'filter-reco', 'sort-by'].forEach(id => {
     $('#' + id).addEventListener('input', renderPCs);
     $('#' + id).addEventListener('change', renderPCs);
   });
@@ -334,6 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $('#filter-ram').value = '0';
     $('#filter-vram').value = '0';
     $('#filter-cpu').value = '';
+    $('#filter-reco').value = '';
     $('#sort-by').value = 'price-asc';
     renderPCs();
   });
