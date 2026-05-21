@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choisir son PC pour la modélisation 3D — Guide Étudiant 2026</title>
+  <meta name="description" content="Guide complet pour choisir un PC fixe + écran pour étudier la modélisation 3D (Blender, Maya, ZBrush). Prix réels mai 2026, France.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="badge">Mise à jour : mai 2026 · Prix France TTC</div>
+    <h1>PC pour la modélisation 3D</h1>
+    <p class="subtitle">Guide d'achat complet pour étudiants — Blender, Maya, 3ds Max, ZBrush, Substance Painter. Sélection vérifiée chez LDLC, Materiel.net, Topachat.</p>
+    <div class="hero-stats">
+      <div class="stat"><strong id="stat-pcs">—</strong><span>PC préassemblés</span></div>
+      <div class="stat"><strong id="stat-customs">3</strong><span>Builds custom</span></div>
+      <div class="stat"><strong id="stat-screens">—</strong><span>Écrans</span></div>
+      <div class="stat"><strong>2026</strong><span>Prix actualisés</span></div>
+    </div>
+    <nav class="hero-nav">
+      <a href="#alert" class="nav-link nav-alert">⚠ Marché 2026</a>
+      <a href="#prebuilt" class="nav-link">PC préassemblés</a>
+      <a href="#custom" class="nav-link">Builds custom</a>
+      <a href="#screens" class="nav-link">Écrans</a>
+      <a href="#advice" class="nav-link">Conseils 3D</a>
+    </nav>
+  </div>
+</header>
+
+<section id="alert" class="market-alert">
+  <div class="container">
+    <h2>⚠ Contexte du marché mai 2026</h2>
+    <div class="alert-grid">
+      <div class="alert-card">
+        <h3>Crise NAND — SSD</h3>
+        <p>Les SSD NVMe ont vu leur prix multiplié par 2 à 3 depuis fin 2024. Un Samsung 990 Pro 1 To est passé de ~90 € à ~300 €. Privilégier le minimum nécessaire (1 To).</p>
+      </div>
+      <div class="alert-card">
+        <h3>DDR5 — hausse forte</h3>
+        <p>Un kit 32 Go DDR5 6000 CL30 coûte aujourd'hui ~520 € (vs ~120 € début 2025). Les kits 64 Go dépassent les 850 €. À budgétiser sérieusement.</p>
+      </div>
+      <div class="alert-card">
+        <h3>RTX 50 au-dessus du MSRP</h3>
+        <p>Les RTX 5070 / 5070 Ti / 5080 se vendent 30 à 60 % au-dessus du MSRP officiel NVIDIA. Les RTX 5090 dépassent souvent 3 500 €.</p>
+      </div>
+      <div class="alert-card">
+        <h3>CPU AMD stables</h3>
+        <p>Bonne nouvelle : les Ryzen 7000/9000 et les Core Ultra Series 2 sont bien approvisionnés. Le Ryzen 9 9950X3D est la référence haut de gamme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prebuilt" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>PC fixes préassemblés</h2>
+      <p>Sélection vérifiée chez LDLC, Materiel.net, Topachat — livraison France. Triés par prix croissant.</p>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label>Budget max</label>
+        <input type="range" id="filter-price" min="1000" max="4500" step="100" value="4500">
+        <span class="filter-value" id="filter-price-value">4 500 €</span>
+      </div>
+
+      <div class="filter-group">
+        <label>Marque GPU (AIB)</label>
+        <select id="filter-aib">
+          <option value="">Toutes</option>
+          <option value="ASUS">ASUS</option>
+          <option value="MSI">MSI</option>
+          <option value="Gigabyte">Gigabyte</option>
+          <option value="Gainward">Gainward</option>
+          <option value="PNY">PNY</option>
+          <option value="Variable">AIB variable</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>RAM minimum</label>
+        <select id="filter-ram">
+          <option value="0">Indifférent</option>
+          <option value="16">16 Go +</option>
+          <option value="32">32 Go +</option>
+          <option value="64">64 Go +</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>VRAM minimum</label>
+        <select id="filter-vram">
+          <option value="0">Indifférent</option>
+          <option value="8">8 Go +</option>
+          <option value="12">12 Go +</option>
+          <option value="16">16 Go +</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Marque CPU</label>
+        <select id="filter-cpu">
+          <option value="">Toutes</option>
+          <option value="AMD">AMD</option>
+          <option value="Intel">Intel</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Trier par</label>
+        <select id="sort-by">
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+          <option value="vram-desc">VRAM (plus)</option>
+          <option value="ram-desc">RAM (plus)</option>
+        </select>
+      </div>
+
+      <button class="btn-reset" id="reset-filters">Réinitialiser</button>
+    </div>
+
+    <div class="results-count" id="results-count"></div>
+
+    <div class="cards-grid" id="pc-grid"></div>
+  </div>
+</section>
+
+<section id="custom" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>3 builds custom à monter</h2>
+      <p>Pour ceux qui veulent maîtriser chaque pièce. Prix indicatifs mai 2026, hors montage. Note : la conjoncture 2026 (RAM/SSD/GPU) rend les budgets tendus.</p>
+    </div>
+
+    <div class="custom-tabs">
+      <button class="tab-btn active" data-tab="budget">Budget · ~1 700 €</button>
+      <button class="tab-btn" data-tab="balanced">Équilibrée · ~2 800 €</button>
+      <button class="tab-btn" data-tab="performance">Performance · ~4 200 €</button>
+    </div>
+
+    <div class="custom-content" id="custom-content"></div>
+  </div>
+</section>
+
+<section id="screens" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Écrans pour la modélisation 3D</h2>
+      <p>Privilégier IPS + sRGB 100 % minimum. Pour le texturing (Substance Painter), viser 95 %+ DCI-P3 et un calibrage usine.</p>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label>Budget max</label>
+        <input type="range" id="screen-price" min="200" max="1500" step="50" value="1500">
+        <span class="filter-value" id="screen-price-value">1 500 €</span>
+      </div>
+
+      <div class="filter-group">
+        <label>Marque</label>
+        <select id="screen-brand">
+          <option value="">Toutes</option>
+          <option value="ASUS">ASUS</option>
+          <option value="Dell">Dell</option>
+          <option value="BenQ">BenQ</option>
+          <option value="LG">LG</option>
+          <option value="MSI">MSI</option>
+          <option value="iiyama">iiyama</option>
+          <option value="EIZO">EIZO</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Résolution</label>
+        <select id="screen-res">
+          <option value="">Toutes</option>
+          <option value="QHD">QHD (1440p)</option>
+          <option value="4K">4K (2160p)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Calibration usine</label>
+        <select id="screen-cal">
+          <option value="">Toutes</option>
+          <option value="yes">Calibré usine</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Trier par</label>
+        <select id="screen-sort">
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+          <option value="dcip3-desc">DCI-P3 (plus)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="results-count" id="screen-count"></div>
+    <div class="cards-grid" id="screen-grid"></div>
+  </div>
+</section>
+
+<section id="advice" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Conseils pour la modélisation 3D</h2>
+    </div>
+
+    <div class="advice-grid">
+      <article class="advice-card">
+        <span class="advice-tag">GPU</span>
+        <h3>Pourquoi NVIDIA ?</h3>
+        <p>Blender Cycles, OctaneRender, Redshift et V-Ray RT utilisent <strong>CUDA</strong> et <strong>OptiX</strong>. AMD progresse avec HIP-RT mais reste 30 à 50 % plus lent en rendu. Pour les études, NVIDIA reste le choix sûr.</p>
+      </article>
+      <article class="advice-card">
+        <span class="advice-tag">VRAM</span>
+        <h3>VRAM : combien ?</h3>
+        <p><strong>8 Go</strong> minimum (limité), <strong>12 Go</strong> confortable, <strong>16 Go+</strong> recommandé pour OctaneRender / textures 4K-8K, ZBrush HD, ou rendus GPU sérieux. La RTX 5060 Ti 16 Go est le meilleur compromis prix/VRAM.</p>
+      </article>
+      <article class="advice-card">
+        <span class="advice-tag">CPU</span>
+        <h3>CPU : cœurs ou cache ?</h3>
+        <p>Pour le <strong>rendu CPU</strong> (Cycles CPU, Arnold) : maximum de cœurs (Ryzen 9 9950X, Core Ultra 9 285K). Pour le <strong>viewport</strong> et les <strong>simulations</strong> (Houdini, Maya) : Ryzen 7/9 X3D (cache 3D) gagne sur scènes denses.</p>
+      </article>
+      <article class="advice-card">
+        <span class="advice-tag">RAM</span>
+        <h3>RAM : 32 Go minimum</h3>
+        <p>16 Go en 2026 = juste pour débuter. <strong>32 Go DDR5 6000 CL30</strong> = sweet spot étudiant. Pour Houdini, ZBrush HD subdivisions, scènes Maya/Arnold lourdes, viser <strong>64 Go</strong>.</p>
+      </article>
+      <article class="advice-card">
+        <span class="advice-tag">SSD</span>
+        <h3>Stockage : NVMe Gen4 minimum</h3>
+        <p>1 To NVMe pour OS + logiciels + projets en cours. Ajouter un SSD secondaire pour les bibliothèques d'assets (Megascans, Substance, HDRI). Caches Houdini exigent les vitesses Gen4/Gen5.</p>
+      </article>
+      <article class="advice-card">
+        <span class="advice-tag">Écran</span>
+        <h3>Écran : IPS + DCI-P3</h3>
+        <p>Privilégier <strong>IPS</strong>, <strong>27" minimum</strong>, <strong>QHD</strong> ou <strong>4K</strong>, et <strong>95 %+ DCI-P3</strong> pour le texturing. Calibration usine (ASUS ProArt, BenQ DesignVue) idéale. Eviter VA/TN et les ultrawides 21:9 pour la 3D.</p>
+      </article>
+      <article class="advice-card">
+        <span class="advice-tag">Alim</span>
+        <h3>Alimentation : ne pas négliger</h3>
+        <p>850 W 80+ Gold ATX 3.1 minimum pour RTX 5070 Ti / 5080. <strong>1000 W</strong> pour RTX 5090. Marques fiables : <strong>Corsair RM</strong>, <strong>be quiet! Pure Power 13</strong>, <strong>Seasonic Focus</strong>.</p>
+      </article>
+      <article class="advice-card">
+        <span class="advice-tag">Budget</span>
+        <h3>Combien dépenser ?</h3>
+        <p><strong>1 200-1 500 €</strong> : début d'études, Blender / petits projets.<br><strong>1 700-2 500 €</strong> : sweet spot étudiant sérieux.<br><strong>3 000 €+</strong> : pro / freelance / pipeline studio.<br>Ajouter <strong>300-600 €</strong> pour un écran décent.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Modal détail -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close aria-label="Fermer">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>Guide d'achat PC modélisation 3D · Mise à jour mai 2026 · Prix indicatifs sujets à variation.</p>
+    <p class="footer-note">Les prix et disponibilités sont vérifiés sur LDLC, Materiel.net, Topachat, Cybertek, Amazon.fr, idealo.fr. Toujours confirmer au moment de l'achat. Aucun lien affilié.</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
