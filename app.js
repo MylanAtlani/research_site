@@ -53,7 +53,7 @@ function pcCardHTML(pc) {
       </div>
       <div>
         <div class="card-name">${escape(pc.name)}</div>
-        <div class="card-vendor">${escape(pc.vendor)}</div>
+        <div class="card-vendor"><strong>${escape(pc.brand || pc.vendor)}</strong> &middot; ${escape(pc.vendor)}</div>
       </div>
       <div>
         <div class="card-price">${fmtPrice(pc.price)}</div>
@@ -77,6 +77,7 @@ function pcCardHTML(pc) {
 function renderPCs() {
   const grid = $('#pc-grid');
   const maxPrice = parseFloat($('#filter-price').value);
+  const brand = $('#filter-brand').value;
   const aib = $('#filter-aib').value;
   const minRam = parseInt($('#filter-ram').value, 10);
   const minVram = parseInt($('#filter-vram').value, 10);
@@ -85,6 +86,7 @@ function renderPCs() {
 
   let list = PC_PREBUILT.filter(pc => {
     if (pc.price > maxPrice) return false;
+    if (brand && pc.brand !== brand) return false;
     if (aib && detectAIB(pc) !== aib) return false;
     if (pc.ram < minRam) return false;
     if (pc.vram < minVram) return false;
@@ -320,13 +322,14 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#stat-pcs').textContent = PC_PREBUILT.length;
   $('#stat-screens').textContent = SCREENS.length;
 
-  ['filter-price', 'filter-aib', 'filter-ram', 'filter-vram', 'filter-cpu', 'sort-by'].forEach(id => {
+  ['filter-price', 'filter-brand', 'filter-aib', 'filter-ram', 'filter-vram', 'filter-cpu', 'sort-by'].forEach(id => {
     $('#' + id).addEventListener('input', renderPCs);
     $('#' + id).addEventListener('change', renderPCs);
   });
 
   $('#reset-filters').addEventListener('click', () => {
     $('#filter-price').value = 4500;
+    $('#filter-brand').value = '';
     $('#filter-aib').value = '';
     $('#filter-ram').value = '0';
     $('#filter-vram').value = '0';

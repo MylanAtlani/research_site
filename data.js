@@ -1,13 +1,148 @@
 // ============================================================
 // Données : prix vérifiés en mai 2026 sur LDLC, Materiel.net,
-// Topachat, idealo.fr, Amazon.fr. Sujets à variation.
+// Topachat, Cybertek, Grosbill, HP Store FR, Dell.fr, Lenovo.fr,
+// Fnac, Darty, Boulanger, Amazon.fr, idealo.fr, ledenicheur.fr.
+// Sujets à variation.
 // ============================================================
 
 const PC_PREBUILT = [
-  // ============= 1000-1300 € =============
+  // ============= < 1 200 € =============
+  {
+    id: 'lenovo-loq-17irr9',
+    name: 'Lenovo LOQ Tower 17IRR9',
+    brand: 'Lenovo',
+    vendor: 'Darty / Cdiscount',
+    price: 899.99,
+    priceNote: 'Prix cassé (PVC Lenovo 1 199 €)',
+    tier: 'budget',
+    inStock: true,
+    cpu: 'Intel Core i5-14400 (10c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5060 8 Go GDDR7',
+    aib: 'Variable',
+    vram: 8,
+    ram: 16,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 512 Go',
+    psu: '380W propriétaire',
+    casing: 'Mini-tour 17L',
+    warranty: '2 ans Lenovo',
+    url: 'https://www.darty.com/nav/achat/ref/MC352507481.html',
+    pros: [
+      'Tarif imbattable < 900 € pour une RTX 5060 récente',
+      'Châssis sobre adapté à un bureau étudiant',
+      'SSD NVMe rapide, Wi-Fi 6E inclus'
+    ],
+    cons: [
+      'RAM 16 Go : upgrade obligatoire à 32 Go pour Maya/ZBrush sérieux',
+      'Alim propriétaire = aucun upgrade GPU futur',
+      'Carte mère propriétaire non standard'
+    ]
+  },
+
+  // ============= 1 200 - 1 400 € =============
+  {
+    id: 'lenovo-loq-26adr10',
+    name: 'Lenovo LOQ Tower 26ADR10',
+    brand: 'Lenovo',
+    vendor: 'Lenovo.fr',
+    price: 1199,
+    priceNote: 'Config 32 Go / 1 To',
+    tier: 'budget',
+    inStock: true,
+    cpu: 'AMD Ryzen 7 8745HX (8c/16t)',
+    cpuBrand: 'AMD',
+    gpu: 'NVIDIA RTX 5060 8 Go GDDR7',
+    aib: 'Variable',
+    vram: 8,
+    ram: 32,
+    ramType: 'DDR5 5600',
+    storage: 'SSD NVMe 1 To Gen4',
+    psu: '500W propriétaire',
+    casing: 'Mini-tour 26L',
+    warranty: '2 ans Lenovo',
+    url: 'https://www.lenovo.com/fr/fr/p/desktops/loq-desktops/lenovo-loq-tower-26adr10/91dfcto1wwfr1',
+    pros: [
+      '32 Go DDR5 d\'origine : prêt pour Blender et ZBrush étudiant',
+      'Ryzen 7 8745HX excellent en multicœur (rendu Cycles CPU)',
+      'Wi-Fi 7, design rajeuni 2025'
+    ],
+    cons: [
+      'RTX 5060 8 Go VRAM : limite GPU rendering 4K',
+      'Châssis 26L compact : upgrade GPU limité',
+      'Alim 500W propriétaire'
+    ]
+  },
+  {
+    id: 'cybertek-beast',
+    name: 'PC Gamer Cybertek BEAST',
+    brand: 'Cybertek',
+    vendor: 'Cybertek',
+    price: 1259.99,
+    priceNote: 'Expédié sous 24h',
+    tier: 'budget',
+    inStock: true,
+    cpu: 'AMD Ryzen 7 5700X (8c/16t, AM4)',
+    cpuBrand: 'AMD',
+    gpu: 'NVIDIA RTX 5060 8 Go GDDR7',
+    aib: 'Variable',
+    vram: 8,
+    ram: 32,
+    ramType: 'DDR4 RGB 3200',
+    storage: 'SSD NVMe 1 To',
+    psu: '650-750W typique Cybertek',
+    casing: 'Assemblage Cybertek',
+    warranty: '2 ans',
+    url: 'https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-2043-166271.aspx',
+    pros: [
+      '32 Go DDR4 dès l\'entrée de gamme : confortable pour Blender',
+      'Ryzen 7 5700X 8 cœurs : bon en rendu CPU',
+      'SSD NVMe 1 To pour caches et projets'
+    ],
+    cons: [
+      'Plateforme AM4 / DDR4 en fin de vie',
+      'VRAM 8 Go : plafonne sur scènes ZBrush HD',
+      'Alim non précisée à confirmer'
+    ]
+  },
+  {
+    id: 'acer-nitro-50-n50-656',
+    name: 'Acer Nitro 50 N50-656',
+    brand: 'Acer',
+    vendor: 'Acer Store / Fnac',
+    price: 1349,
+    priceNote: 'Vu à 1 345 € sur idealo, 1 399 € Fnac/Darty',
+    tier: 'budget',
+    inStock: true,
+    cpu: 'Intel Core i5-14400F (10c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5060 8 Go GDDR7',
+    aib: 'Acer',
+    vram: 8,
+    ram: 16,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '500W (non 80+ certifié)',
+    casing: 'Mid-tower compacte',
+    warranty: '2 ans Acer',
+    url: 'https://store.acer.com/fr-fr/acer-nitro-pc-gamer-n50-656-noir-dg-e3wef-008',
+    pros: [
+      'Prix plancher honnête pour démarrer Blender',
+      'RTX 5060 = CUDA/OptiX pour Cycles',
+      'SSD 1 To direct, dispo immédiate'
+    ],
+    cons: [
+      'Seulement 16 Go RAM (insuffisant ZBrush/Maya sérieux)',
+      '8 Go VRAM limite gros assets',
+      'Boîtier peu évolutif, alim limite'
+    ]
+  },
+
+  // ============= 1 100 - 1 600 € (LDLC/Topachat) =============
   {
     id: 'topachat-velox',
     name: 'PC Gamer VELOX',
+    brand: 'Topachat',
     vendor: 'Topachat',
     price: 1129.99,
     priceNote: 'En stock à Paris',
@@ -26,19 +161,20 @@ const PC_PREBUILT = [
     warranty: '2 ans',
     url: 'https://www.topachat.com/pages/detail2_cat_est_ordinateurs_puis_rubrique_est_w_pcgam_ta_puis_ref_est_in20030794.html',
     pros: [
-      '32 Go RAM dès l\'entrée de gamme = viewport Blender/Maya confortable',
-      'RTX 5060 avec CUDA + OptiX pour Cycles/Arnold accélérés',
-      'SSD NVMe 1 To rapide pour caches Substance/textures'
+      '32 Go RAM dès l\'entrée de gamme = viewport Blender confortable',
+      'RTX 5060 avec CUDA + OptiX pour Cycles/Arnold',
+      'SSD NVMe 1 To rapide'
     ],
     cons: [
-      'CPU Ryzen 5 5500 (Zen 3) vieillissant : limite simulations CPU',
-      'Seulement 8 Go VRAM : plafonne pour rendu GPU avec textures 4K',
+      'CPU Ryzen 5 5500 (Zen 3) vieillissant',
+      '8 Go VRAM plafonne en rendu GPU 4K',
       'DDR4 et plateforme AM4 non évolutives'
     ]
   },
   {
     id: 'ldlc-art-six-ti',
     name: 'LDLC PC ART SIX-TI',
+    brand: 'LDLC',
     vendor: 'LDLC',
     price: 1219.95,
     priceNote: '1 319,95 € avec Win11',
@@ -57,21 +193,52 @@ const PC_PREBUILT = [
     warranty: '2 ans LDLC',
     url: 'https://www.ldlc.com/fiche/PB00677382.html',
     pros: [
-      '16 Go VRAM exceptionnels à ce prix : rendus GPU de scènes lourdes',
-      'Idéal sculpting ZBrush HD grâce à la VRAM généreuse',
-      'PC LDLC = montage maison français, évolutivité simple'
+      '16 Go VRAM exceptionnels à ce prix',
+      'Idéal sculpting ZBrush HD',
+      'PC LDLC = montage maison français, évolutif'
     ],
     cons: [
-      'RAM système 16 Go trop juste : à upgrader rapidement vers 32 Go',
-      'CPU Ryzen 5 5500 daté, médiocre en rendu CPU',
+      'RAM 16 Go trop juste, à upgrader vers 32 Go',
+      'CPU Ryzen 5 5500 daté',
       'Marque AIB du GPU non précisée'
     ]
   },
-
-  // ============= 1300-1700 € =============
+  {
+    id: 'acer-orion-3000-po3-660',
+    name: 'Acer Predator Orion 3000 PO3-660',
+    brand: 'Acer',
+    vendor: 'Fnac / Cdiscount',
+    price: 1499,
+    priceNote: 'Config i7 / 32 Go / RTX 5060',
+    tier: 'mid',
+    inStock: true,
+    cpu: 'Intel Core i7-14700F (20c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5060 8 Go GDDR7',
+    aib: 'Acer',
+    vram: 8,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '500W Acer',
+    casing: 'Mid-tower 28L Predator',
+    warranty: '2 ans Acer',
+    url: 'https://www.fnac.com/PC-Gaming-Acer-Predator-Orion-3000-Intel-Core-i7-32-Go-RAM-1-To-SSD-Nvidia-GeForce-RTX-5060-Noir/a21825944/w-4',
+    pros: [
+      'i7-14700F + 32 Go DDR5 difficile à battre à ce prix',
+      'Plateforme polyvalente Blender + Maya',
+      'Finitions Predator soignées'
+    ],
+    cons: [
+      'RTX 5060 limitée à 8 Go VRAM',
+      'Alim 500W limite upgrade vers 5070 Ti+',
+      'Carte mère mATX propriétaire'
+    ]
+  },
   {
     id: 'mat-skillshot',
     name: 'PC Gamer Skillshot (Win11)',
+    brand: 'Materiel.net',
     vendor: 'Materiel.net',
     price: 1499.95,
     priceNote: 'Garantie 5 ans, Win11 inclus',
@@ -79,7 +246,7 @@ const PC_PREBUILT = [
     inStock: true,
     cpu: 'AMD Ryzen 5 5500 (6c/12t)',
     cpuBrand: 'AMD',
-    gpu: 'ASUS GeForce RTX 5060 Dual OC 8 Go',
+    gpu: 'ASUS RTX 5060 Dual OC 8 Go',
     aib: 'ASUS',
     vram: 8,
     ram: 32,
@@ -90,18 +257,19 @@ const PC_PREBUILT = [
     warranty: '5 ans',
     url: 'https://www.materiel.net/produit/202506180076.html',
     pros: [
-      'Garantie 5 ans Materiel.net = sécurité étudiant',
-      '32 Go DDR4 + Win11 préinstallé : prêt à l\'emploi',
-      'GPU ASUS Dual fiable, refroidissement éprouvé sur rendus longs'
+      'Garantie 5 ans Materiel.net',
+      '32 Go DDR4 + Win11 préinstallé',
+      'GPU ASUS Dual fiable'
     ],
     cons: [
-      'CPU 5500 trop juste pour modélisation lourde / simulations',
+      'CPU 5500 trop juste pour modélisation lourde',
       '8 Go VRAM limite le rendu GPU avec textures HD'
     ]
   },
   {
     id: 'mat-daemon',
     name: 'PC Gamer Daemon (Win11)',
+    brand: 'Materiel.net',
     vendor: 'Materiel.net',
     price: 1549.95,
     priceNote: 'AM5 évolutif',
@@ -121,19 +289,147 @@ const PC_PREBUILT = [
     url: 'https://www.materiel.net/produit/202507300069.html',
     pros: [
       'CPU Zen 4 récent (AM5) : meilleur IPC que les Ryzen 5500/5700X',
-      'Watercooling 360 mm Corsair Nautilus : rendus longs sans throttle',
-      'Plateforme AM5 évolutive (DDR5 6000, futur Ryzen 9000)'
+      'Watercooling 360 mm Corsair Nautilus',
+      'Plateforme AM5 évolutive (DDR5 6000)'
     ],
     cons: [
-      '16 Go RAM seulement : insuffisant pour 3ds Max ou Maya complexe',
-      'RTX 5060 Ti 8 Go (et non la version 16 Go)'
+      '16 Go RAM seulement : insuffisant pour 3ds Max ou Maya',
+      'RTX 5060 Ti 8 Go (et non 16 Go)'
+    ]
+  },
+  {
+    id: 'hp-omen-16l-tg03',
+    name: 'HP Omen 16L TG03-0097nf',
+    brand: 'HP',
+    vendor: 'HP Store FR',
+    price: 1599,
+    priceNote: 'Prix lancement HP',
+    tier: 'mid',
+    inStock: true,
+    cpu: 'Intel Core i5-14400F (10c/16t)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5060 8 Go GDDR7',
+    aib: 'Variable',
+    vram: 8,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 512 Go',
+    psu: '500W',
+    casing: 'Mini-tour 16L',
+    warranty: '2 ans HP',
+    url: 'https://www.hp.com/fr-fr/shop/product.aspx?id=bx8v9ea&opt=abf&sel=dtp',
+    pros: [
+      '32 Go DDR5 inclus dès le départ',
+      'Châssis Omen 16L compact bien fini',
+      'Wi-Fi 6E, HP On-Site possible'
+    ],
+    cons: [
+      'i5-14400F moins fort que Ryzen 7 en rendu',
+      'SSD 512 Go juste pour bibliothèques 3D',
+      'Châssis 16L = pas de marge GPU futur'
+    ]
+  },
+  {
+    id: 'asus-rog-g22ch-71470f',
+    name: 'ASUS ROG G22CH-71470F127W',
+    brand: 'ASUS',
+    vendor: 'Fnac',
+    price: 1599,
+    priceNote: 'Variable selon stock, parfois 1 699 €',
+    tier: 'mid',
+    inStock: true,
+    cpu: 'Intel Core i7-14700F (20c/28t)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 4060 8 Go',
+    aib: 'ASUS',
+    vram: 8,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: 'SFX 500-650W ASUS',
+    casing: 'SFF (~14 L, taille PS5)',
+    warranty: '2 ans ASUS',
+    url: 'https://www.fnac.com/G22CH-71470F127W-2-1-32G-1TB-SSD-PCIE-G4-Nvidia-GeForce-RTX-4060/a20699229/w-4',
+    pros: [
+      'i7-14700F excellent pour viewport Maya/ZBrush',
+      '32 Go d\'office, finitions ROG premium',
+      'Châssis ultra-compact'
+    ],
+    cons: [
+      'RTX 4060 gen précédente, 8 Go VRAM faible',
+      'SFF = très peu d\'évolutivité',
+      'Thermals serrés sous charge longue'
+    ]
+  },
+  {
+    id: 'grosbill-crystal-core',
+    name: 'PC Gamer Grosbill CRYSTAL CORE',
+    brand: 'Grosbill',
+    vendor: 'Grosbill',
+    price: 1629.99,
+    priceNote: 'Au lieu de 1 699,99 €',
+    tier: 'mid',
+    inStock: true,
+    cpu: 'Intel Core i5-14600KF (14c, 5,3 GHz)',
+    cpuBrand: 'Intel',
+    gpu: 'ASUS Dual RTX 5060 Ti 16 Go OC',
+    aib: 'ASUS',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR4 3200 PNY XLR8',
+    storage: 'SSD Kingston SNV3S 1 To NVMe Gen4',
+    psu: 'M.RED 850W 80+ Gold',
+    casing: 'M.RED Crystal Sea Mini',
+    warranty: '2 ans',
+    url: 'https://www.grosbill.com/univers-gamer/pc-assembles/pc-gamer-grosbill-2052-166034.aspx',
+    pros: [
+      'VRAM 16 Go : critique pour Blender/ZBrush scènes denses',
+      'i5-14600KF excellent en single-thread',
+      'Alim 850W Gold = marge upgrade GPU',
+      'AIO 240 ARGB inclus'
+    ],
+    cons: [
+      'DDR4 (limite débit vs DDR5)',
+      'RTX 5060 Ti = entrée de gamme RT cores'
+    ]
+  },
+  {
+    id: 'msi-mag-infinite-s3-5060ti',
+    name: 'MSI MAG Infinite S3 14NVM5-2873EU',
+    brand: 'MSI',
+    vendor: 'MSI Store FR',
+    price: 1649.99,
+    priceNote: 'Descend à 1 399 € durant soldes',
+    tier: 'mid',
+    inStock: false,
+    cpu: 'Intel Core i5-14400F (10c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5060 Ti 16 Go GDDR7',
+    aib: 'MSI',
+    vram: 16,
+    ram: 16,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '650W 80+ Bronze MSI',
+    casing: 'Mid-tower ATX standard',
+    warranty: '2 ans MSI',
+    url: 'https://fr-store.msi.com/products/mag-infinite-s3-14nvm5-2873eu-gaming-desktop',
+    pros: [
+      'RTX 5060 Ti 16 Go = excellent pour 3D (VRAM doublée)',
+      'Châssis évolutif ATX standard',
+      'Alim 650W permet upgrade GPU'
+    ],
+    cons: [
+      '16 Go RAM insuffisants : upgrade obligatoire 32 Go',
+      'i5-14400F limite sur simulations lourdes'
     ]
   },
 
-  // ============= 1700-2000 € =============
+  // ============= 1 700 - 2 100 € =============
   {
     id: 'topachat-nightwave',
     name: 'PC Gamer NIGHTWAVE',
+    brand: 'Topachat',
     vendor: 'Topachat',
     price: 1699.99,
     priceNote: 'En stock',
@@ -152,18 +448,146 @@ const PC_PREBUILT = [
     warranty: '2 ans',
     url: 'https://www.topachat.com/pages/produits_cat_est_ordinateurs_puis_rubrique_est_w_pcgam_ta.html',
     pros: [
-      'RTX 5070 12 Go : excellent ratio perfs/prix en OptiX (Cycles, Redshift)',
-      'Ryzen 7 5700X 8 cœurs : bon pour baking et simulations',
-      '32 Go DDR4 + 1 To NVMe : config complète'
+      'RTX 5070 12 Go : excellent ratio perfs/prix en OptiX',
+      'Ryzen 7 5700X 8 cœurs',
+      '32 Go DDR4 + 1 To NVMe'
     ],
     cons: [
-      'Plateforme AM4 / DDR4 en fin de vie : peu d\'évolutivité',
-      'Marque AIB du GPU non précisée'
+      'Plateforme AM4 / DDR4 en fin de vie',
+      'Marque AIB GPU non précisée'
+    ]
+  },
+  {
+    id: 'cybertek-ronin',
+    name: 'PC Gamer Cybertek RONIN',
+    brand: 'Cybertek',
+    vendor: 'Cybertek',
+    price: 1799.99,
+    priceNote: 'Dernières pièces, livraison ~10 jours',
+    tier: 'mid',
+    inStock: true,
+    cpu: 'AMD Ryzen 7 8700F (8c/16t, AM5)',
+    cpuBrand: 'AMD',
+    gpu: 'ASUS Dual RTX 5060 Ti 16 Go OC',
+    aib: 'ASUS',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5 5600 Kingston Fury Beast',
+    storage: 'SSD Kingston SNV3S 1 To NVMe',
+    psu: 'MSI MAG A750BN 750W Bronze',
+    casing: 'MSI MAG FORGE 112R',
+    warranty: '2 ans (extensible 5 ans)',
+    url: 'https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-2026-165981.aspx',
+    pros: [
+      'Plateforme AM5 (DDR5 + upgrade futur)',
+      'VRAM 16 Go : confort Blender/ZBrush/Maya',
+      'AIO 240 inclus, SAV Cybertek'
+    ],
+    cons: [
+      'Alim Bronze 750W',
+      'SSD 1 To se remplit vite avec projets Maya'
+    ]
+  },
+  {
+    id: 'hp-omen-25l-gt15',
+    name: 'HP Omen 25L GT15 (i7 + 5060 Ti)',
+    brand: 'HP',
+    vendor: 'HP Store / Fnac',
+    price: 1800,
+    priceNote: 'Estimation mai 2026 : 1 700-1 900 €',
+    tier: 'mid',
+    inStock: true,
+    cpu: 'Intel Core i7-14700KF (20c/28t)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5060 Ti 8 Go GDDR7',
+    aib: 'Variable',
+    vram: 8,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '500W',
+    casing: 'Mini-tour 25L',
+    warranty: '2 ans HP',
+    url: 'https://www.hp.com/fr-fr/gaming-pc/desktops/omen-25l-intel.html',
+    pros: [
+      'i7-14700KF débloqué excellent en CPU rendering',
+      'Châssis 25L bien ventilé, format compact',
+      '32 Go d\'origine'
+    ],
+    cons: [
+      'RTX 5060 Ti 8 Go VRAM limite ZBrush HD',
+      'Alim 500W = pas d\'upgrade GPU haut de gamme',
+      'Carte mère mATX propriétaire HP'
+    ]
+  },
+  {
+    id: 'pcspecialist-r5-5070',
+    name: 'PCSpecialist Ryzen 5 7500F + RTX 5070',
+    brand: 'PCSpecialist',
+    vendor: 'Rue du Commerce / PCSpecialist',
+    price: 1804.05,
+    priceNote: 'Réduit de 2 299 €, -21%',
+    tier: 'mid',
+    inStock: true,
+    cpu: 'AMD Ryzen 5 7500F (6c/12t, AM5)',
+    cpuBrand: 'AMD',
+    gpu: 'NVIDIA RTX 5070 12 Go GDDR7',
+    aib: 'Variable',
+    vram: 12,
+    ram: 32,
+    ramType: 'DDR5 5200 Corsair Vengeance',
+    storage: 'SSD M.2 NVMe 2 To',
+    psu: '750W Gold typique',
+    casing: 'Corsair Frame 4000D RS ARGB',
+    warranty: 'Légale FR + assemblage main',
+    url: 'https://www.rueducommerce.fr/p/m25088954695.html',
+    pros: [
+      'SSD 2 To généreux pour caches Blender + bibliothèques',
+      'RTX 5070 = bond CUDA/OptiX vs 5060 Ti',
+      'Boitier Corsair 4000D bonne aération',
+      'Plateforme AM5 évolutive'
+    ],
+    cons: [
+      'Ryzen 5 7500F (6c) un peu juste pour simulations',
+      'VRAM 12 Go : limite ZBrush HD'
+    ]
+  },
+  {
+    id: 'lenovo-legion-tower-5i-gen10',
+    name: 'Lenovo Legion Tower 5i Gen 10',
+    brand: 'Lenovo',
+    vendor: 'Lenovo.fr',
+    price: 1999,
+    priceNote: 'Estimation mai 2026 : 1 899-2 099 €',
+    tier: 'mid',
+    inStock: false,
+    cpu: 'Intel Core Ultra 7 265F (20c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5070 12 Go GDDR7',
+    aib: 'Variable',
+    vram: 12,
+    ram: 32,
+    ramType: 'DDR5 5600',
+    storage: 'SSD NVMe 1 To Gen4',
+    psu: '850W 80+ Platinum',
+    casing: 'Moyenne tour 30L verre trempé',
+    warranty: '2 ans Lenovo Premier Support',
+    url: 'https://www.lenovo.com/fr/fr/legion/legion-intel/',
+    pros: [
+      'Châssis 30L bien ventilé avec verre trempé',
+      'Alim 850W Platinum',
+      'Ultra 7 265F 20 cœurs solide en Blender CPU'
+    ],
+    cons: [
+      'Composants propriétaires partiels',
+      'Délai livraison (configurateur)',
+      'Prix peut grimper avec options'
     ]
   },
   {
     id: 'mat-trigger',
     name: 'PC Gamer Trigger (Win11)',
+    brand: 'Materiel.net',
     vendor: 'Materiel.net',
     price: 1999.95,
     priceNote: 'Souvent -10% code INTEL',
@@ -171,7 +595,7 @@ const PC_PREBUILT = [
     inStock: true,
     cpu: 'Intel Core i5-14400F (10c/16t)',
     cpuBrand: 'Intel',
-    gpu: 'Gainward RTX 5070 Python III 12 Go GDDR7',
+    gpu: 'Gainward RTX 5070 Python III 12 Go',
     aib: 'Gainward',
     vram: 12,
     ram: 32,
@@ -182,20 +606,118 @@ const PC_PREBUILT = [
     warranty: '5 ans',
     url: 'https://www.materiel.net/produit/202603020056.html',
     pros: [
-      'La configuration la plus polyvalente sous 2000 € pour Blender/Maya/3ds Max',
-      'i5-14400F 10 cœurs hybrides : excellent en rendu CPU + multitâche',
-      'Garantie 5 ans + alim 750W = marge pour upgrade GPU'
+      'Configuration polyvalente Blender/Maya/3ds Max',
+      'i5-14400F 10 cœurs : rendu CPU + multitâche',
+      'Garantie 5 ans + alim 750W'
     ],
     cons: [
-      'i5 (non-K) moins performant qu\'un Ryzen 7 récent ou i7 en rendu',
-      '12 Go VRAM limite pour ZBrush HD ou rendus 4K avec gros textures'
+      'i5 non-K moins performant qu\'un Ryzen 7',
+      '12 Go VRAM limite pour ZBrush HD'
+    ]
+  },
+  {
+    id: 'cybertek-revenge',
+    name: 'PC Gamer Cybertek REVENGE',
+    brand: 'Cybertek',
+    vendor: 'Cybertek',
+    price: 1999.99,
+    priceNote: 'Livraison sous 6-10 jours',
+    tier: 'mid',
+    inStock: true,
+    cpu: 'AMD Ryzen 7 8700F (8c/16t, AM5)',
+    cpuBrand: 'AMD',
+    gpu: 'ASUS Dual RTX 5070 12 Go GDDR7',
+    aib: 'ASUS',
+    vram: 12,
+    ram: 32,
+    ramType: 'DDR5 6000 CL36 Kingston Fury',
+    storage: 'SSD Kingston NV3 1 To NVMe Gen4',
+    psu: 'Corsair RM850e 850W Gold ATX 3.1',
+    casing: 'Corsair Frame 4000D RS ARGB',
+    warranty: '2 ans',
+    url: 'https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-2078-166636.aspx',
+    pros: [
+      'Ryzen 7 8700F (8c) + DDR5 6000 : équilibre solide',
+      'Alim Corsair RM850e Gold ATX 3.1 = pérenne',
+      'Watercooling Corsair Nautilus 360 ARGB',
+      'AM5 évolutive'
+    ],
+    cons: [
+      'SSD 1 To uniquement',
+      'VRAM 12 Go : limite ZBrush HD / textures 8K'
+    ]
+  },
+  {
+    id: 'dell-xps-8960',
+    name: 'Dell XPS 8960 Desktop',
+    brand: 'Dell',
+    vendor: 'Dell.fr / Amazon.fr',
+    price: 2099,
+    priceNote: 'Estimation mai 2026 : 1 999-2 299 €',
+    tier: 'high',
+    inStock: false,
+    cpu: 'Intel Core i7-14700 (20c/28t)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 4070 Super 12 Go',
+    aib: 'Variable',
+    vram: 12,
+    ram: 32,
+    ramType: 'DDR5 4800',
+    storage: 'SSD NVMe 1 To',
+    psu: '750W propriétaire Dell',
+    casing: 'Moyenne tour ~31L',
+    warranty: '1 an Premium Support (extensible 3 ans)',
+    url: 'https://www.dell.com/fr-fr/shop/notre-gamme-pro/ordinateur-de-bureau-xps/spd/xps-8960-desktop',
+    pros: [
+      'Châssis Dell sobre et silencieux',
+      'RTX 4070 Super 12 Go encore très bonne pour 3D',
+      'Windows 11 Pro inclus, Premium Support'
+    ],
+    cons: [
+      'Alim et carte mère propriétaires = aucun upgrade',
+      'RTX 4070 Super = génération précédente',
+      'Châssis fermé moins bien ventilé'
+    ]
+  },
+  {
+    id: 'lenovo-thinkstation-p3-tower-g2',
+    name: 'Lenovo ThinkStation P3 Tower Gen 2',
+    brand: 'Lenovo',
+    vendor: 'Lenovo.fr',
+    price: 2218,
+    priceNote: 'Workstation pro, RTX A4000',
+    tier: 'high',
+    inStock: false,
+    cpu: 'Intel Core i7-14700 ou i9-14900',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX A4000 16 Go GDDR6 (Quadro)',
+    aib: 'Variable',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5 4400 ECC',
+    storage: 'SSD NVMe 1 To Gen4',
+    psu: '750W 92% rendement',
+    casing: 'Moyenne tour ThinkStation',
+    warranty: '3 ans Premier Support On-Site',
+    url: 'https://www.lenovo.com/fr/fr/p/workstations/thinkstationp/lenovo-thinkstation-p3-tower-gen-2-intel-workstation/30htcto1wwfr1',
+    pros: [
+      'RTX A4000 16 Go avec drivers Studio certifiés',
+      'Certifications ISV (Autodesk, Adobe, Dassault)',
+      'ECC en option, support pro 3 ans',
+      'Châssis tool-less, maintenance facile'
+    ],
+    cons: [
+      'RTX A4000 plus lente en GPU rendering que RTX 5070 Ti',
+      'Design austère (pas de RGB)',
+      'GPU pro moins puissant en jeu'
     ]
   },
 
-  // ============= 2000-2500 € =============
+  // ============= 2 100 - 2 600 € =============
   {
     id: 'mat-orochi',
     name: 'PC Gamer Orochi (Win11)',
+    brand: 'Materiel.net',
     vendor: 'Materiel.net',
     price: 2249.95,
     priceNote: 'Prix catalogue 2 449,95 €',
@@ -203,7 +725,7 @@ const PC_PREBUILT = [
     inStock: true,
     cpu: 'Intel Core i5 14600KF (14c/20t)',
     cpuBrand: 'Intel',
-    gpu: 'Gainward RTX 5070 Ti Phoenix-S 16 Go GDDR7',
+    gpu: 'Gainward RTX 5070 Ti Phoenix-S 16 Go',
     aib: 'Gainward',
     vram: 16,
     ram: 32,
@@ -214,18 +736,144 @@ const PC_PREBUILT = [
     warranty: '5 ans',
     url: 'https://www.materiel.net/produit/202302150112.html',
     pros: [
-      'i5 14600KF 14 cœurs hybrides : bon rendu CPU + multitâche',
+      'i5 14600KF 14 cœurs hybrides : rendu CPU + multitâche',
       '32 Go DDR5 6000 directement adaptés Blender/Maya',
-      'Alim Corsair Gold ATX 3.1 = headroom upgrade GPU'
+      'Alim Corsair Gold ATX 3.1'
     ],
     cons: [
-      'i5 (pas i7/i9) limité face à un Ryzen 9 sur rendu CPU lourd',
-      'Pas de cache 3D X3D : viewport légèrement en retrait sur scènes denses'
+      'i5 limité face à un Ryzen 9 sur rendu CPU lourd',
+      'Pas de cache 3D X3D'
+    ]
+  },
+  {
+    id: 'msi-mag-infinite-s3-5070',
+    name: 'MSI MAG Infinite S3 14NVP7-2842EU',
+    brand: 'MSI',
+    vendor: 'MSI Store FR / Fnac',
+    price: 2199.99,
+    priceNote: 'Prix officiel MSI FR',
+    tier: 'high',
+    inStock: true,
+    cpu: 'Intel Core i7-14700F (20c/28t)',
+    cpuBrand: 'Intel',
+    gpu: 'MSI Ventus RTX 5070 12 Go GDDR7',
+    aib: 'MSI',
+    vram: 12,
+    ram: 16,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '650W 80+ Bronze',
+    casing: 'Mid-tower MSI',
+    warranty: '2 ans MSI',
+    url: 'https://fr-store.msi.com/products/mag-infinite-s3-14nvp7-2842eu-gaming-desktop',
+    pros: [
+      'RTX 5070 12 Go = vrai palier pour Cycles/Redshift',
+      'i7-14700F récent',
+      'Châssis ATX évolutif'
+    ],
+    cons: [
+      '16 Go RAM : upgrade indispensable (~70 €)',
+      'Alim 650W juste pour upgrade futur'
+    ]
+  },
+  {
+    id: 'acer-orion-5000-po5-660',
+    name: 'Acer Predator Orion 5000 PO5-660',
+    brand: 'Acer',
+    vendor: 'Acer Store / PcComponentes',
+    price: 2299,
+    priceNote: 'idealo dès 2 171 €',
+    tier: 'high',
+    inStock: true,
+    cpu: 'Intel Core Ultra 7 265F (20c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5070 12 Go GDDR7',
+    aib: 'Acer',
+    vram: 12,
+    ram: 32,
+    ramType: 'DDR5 6000',
+    storage: 'SSD NVMe 2 To',
+    psu: '750W Acer',
+    casing: 'Mid-tower',
+    warranty: '2 ans Acer',
+    url: 'https://store.acer.com/fr-fr/predator-orion-5000-pc-gamer-po5-660-noir-dg-e4eeh-005',
+    pros: [
+      'Core Ultra 7 + 32 Go + 5070 + 2 To',
+      'Refroidissement triple-fan',
+      'Wi-Fi 7'
+    ],
+    cons: [
+      'Core Ultra 7 légèrement en deçà du 14700K en multi-thread',
+      'Châssis Acer propriétaire (carte mère custom)'
+    ]
+  },
+  {
+    id: 'hp-omen-35l-gt16-5070',
+    name: 'HP Omen 35L GT16-0518nf',
+    brand: 'HP',
+    vendor: 'HP Store / Fnac',
+    price: 2299,
+    priceNote: 'Prix lancement 2 299 €, parfois -100 € en promo',
+    tier: 'high',
+    inStock: true,
+    cpu: 'AMD Ryzen 7 (8000/9000)',
+    cpuBrand: 'AMD',
+    gpu: 'NVIDIA RTX 5070 12 Go GDDR7',
+    aib: 'Variable',
+    vram: 12,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '800W',
+    casing: 'Moyenne tour 35L',
+    warranty: '2 ans HP',
+    url: 'https://www.fnac.com/PC-Gaming-HP-Omen-35L-GT16-0518nf-AMD-Ryzen-7-32-Go-RAM-1-To-SSD-Nvidia-GeForce-RTX-5070-Noir/a21803117/w-4',
+    pros: [
+      'RTX 5070 12 Go = équilibre prix/VRAM',
+      'Châssis 35L très ventilé pour rendus longs',
+      '32 Go + 1 To + alim 800W'
+    ],
+    cons: [
+      'Carte mère propriétaire HP',
+      'Ventilo CPU bruyant sous charge GPU+CPU'
+    ]
+  },
+  {
+    id: 'asus-rog-g22ch-4070',
+    name: 'ASUS ROG G22CH-71370F142W (RTX 4070)',
+    brand: 'ASUS',
+    vendor: 'Fnac',
+    price: 2299,
+    priceNote: 'Variable selon config',
+    tier: 'high',
+    inStock: true,
+    cpu: 'Intel Core i7-14700F (20c/28t)',
+    cpuBrand: 'Intel',
+    gpu: 'ASUS Dual RTX 4070 12 Go GDDR6X',
+    aib: 'ASUS',
+    vram: 12,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: 'SFX ~650W',
+    casing: 'SFF compacte',
+    warranty: '2 ans ASUS',
+    url: 'https://rog.asus.com/fr/desktops/small-form-factor/rog-g22ch-series/spec/',
+    pros: [
+      'Qualité ASUS premium, 32 Go d\'origine',
+      'Châssis compact silencieux',
+      'Finitions ROG'
+    ],
+    cons: [
+      'RTX 4070 gen précédente',
+      'SFF = upgrade GPU futur problématique',
+      'Alim SFX propriétaire'
     ]
   },
   {
     id: 'ldlc-zen-seven-ti',
     name: 'LDLC PC Zen-M5 X3D Plus Perfect Seven-Ti',
+    brand: 'LDLC',
     vendor: 'LDLC',
     price: 2359.95,
     priceNote: '2 499,95 € avec Win11',
@@ -240,95 +888,382 @@ const PC_PREBUILT = [
     ramType: 'DDR5 (extensible 192 Go)',
     storage: 'SSD NVMe M.2 PCIe 4.0 1 To',
     psu: '750W',
-    casing: 'Moyen-tour verre trempé + AIO 240 mm ARGB',
+    casing: 'Moyen-tour + AIO 240 mm ARGB',
     warranty: '5 ans LDLC',
     url: 'https://www.ldlc.com/fiche/PB00668590.html',
     pros: [
-      'CPU X3D excellent pour viewport Blender/Maya et simulations CPU',
-      '16 Go VRAM GDDR7 = OctaneRender/Redshift confortable jusque scènes moyennes',
-      'Garantie 5 ans, montage maison français'
+      'CPU X3D excellent pour viewport Blender/Maya',
+      '16 Go VRAM GDDR7 = Octane/Redshift confortable',
+      'Garantie 5 ans LDLC'
     ],
     cons: [
-      '16 Go RAM système clairement insuffisant : prévoir upgrade (+120 €)',
-      'PSU 750W non Gold explicitement, marge limitée si upgrade GPU',
-      'Marque AIB du GPU non précisée'
+      '16 Go RAM système : prévoir upgrade (+120 €)',
+      'PSU 750W non Gold explicitement',
+      'AIB GPU non précisée'
+    ]
+  },
+  {
+    id: 'hp-z2-tower-g9',
+    name: 'HP Z2 Tower G9 Workstation',
+    brand: 'HP',
+    vendor: 'HP Store FR',
+    price: 2364,
+    priceNote: 'Workstation pro certifiée',
+    tier: 'high',
+    inStock: true,
+    cpu: 'Intel Core i7-14700K (20c/28t)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX A1000 / T1000 (Quadro)',
+    aib: 'Variable',
+    vram: 8,
+    ram: 32,
+    ramType: 'DDR5 ECC option',
+    storage: 'SSD NVMe 512 Go ou 1 To',
+    psu: '700W 92% (Bronze)',
+    casing: 'Moyenne tour Z2',
+    warranty: '3 ans HP On-Site NBD',
+    url: 'https://www.hp.com/fr-fr/shop/product.aspx?id=8t1n2ea&opt=abf&sel=dtp',
+    pros: [
+      'Drivers Studio certifiés Maya/ZBrush/Solidworks',
+      'Garantie 3 ans On-Site Next Business Day',
+      'ECC option = stabilité rendu multi-heures'
+    ],
+    cons: [
+      'GPU pro moins puissant en rendering vs 5070 Ti grand public',
+      'Cher pour matériel équivalent (paye la certification)'
+    ]
+  },
+  {
+    id: 'cybertek-spectre',
+    name: 'PC Gamer Cybertek SPECTRE',
+    brand: 'Cybertek',
+    vendor: 'Cybertek',
+    price: 2499.99,
+    priceNote: 'Réduit de 200 €',
+    tier: 'high',
+    inStock: true,
+    cpu: 'Intel Core i9-12900KF (16c)',
+    cpuBrand: 'Intel',
+    gpu: 'PNY RTX 5070 Ti 16 Go ARGB OC Triple Fan',
+    aib: 'PNY',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5 6000 CL36 Corsair Vengeance RGB',
+    storage: 'SSD WD SN7100 2 To NVMe Gen4',
+    psu: 'MSI MPG A1000GS 1000W 80+ Gold',
+    casing: 'ASUS A23 PLUS TG ARGB',
+    warranty: '2 ans (extensible 5 ans)',
+    url: 'https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-1928-163378.aspx',
+    pros: [
+      'VRAM 16 Go RTX 5070 Ti = excellent Cycles/Redshift',
+      'i9-12900KF 16 cœurs : très bon rendu CPU',
+      'SSD 2 To WD SN7100 rapide',
+      'Alim 1000W Gold = upgrade futur sans souci'
+    ],
+    cons: [
+      'i9-12900KF gen Intel 12, moins performant que 14700KF',
+      'PNY = AIB moins prestigieux'
     ]
   },
 
-  // ============= 2500-3200 € =============
+  // ============= 2 500 - 3 200 € =============
   {
     id: 'mat-blazefire',
     name: 'PC Gamer Blazefire (Win11)',
+    brand: 'Materiel.net',
     vendor: 'Materiel.net',
     price: 2599.95,
     priceNote: 'Référencé jusque 2 649,95 €',
     tier: 'high',
     inStock: true,
-    cpu: 'Intel Core Ultra 7 265KF (20c/20t)',
+    cpu: 'Intel Core Ultra 7 265KF (20c)',
     cpuBrand: 'Intel',
-    gpu: 'Gainward RTX 5070 Ti Phoenix-S 16 Go GDDR7',
+    gpu: 'Gainward RTX 5070 Ti Phoenix-S 16 Go',
     aib: 'Gainward',
     vram: 16,
     ram: 32,
     ramType: 'DDR5 6000 Crucial Pro',
     storage: 'SSD Crucial P310 1 To NVMe Gen4',
-    psu: 'be quiet! Pure Power 13 M 750W 80+ Gold',
-    casing: 'Corsair 4000D Airflow + AIO Corsair Nautilus 360',
+    psu: 'be quiet! Pure Power 13 M 750W Gold',
+    casing: 'Corsair 4000D Airflow + AIO 360',
     warranty: '5 ans',
     url: 'https://www.materiel.net/produit/202603020141.html',
     pros: [
-      'Core Ultra 7 265KF 20 cœurs + NPU = excellent multitâche et rendu CPU',
-      'AIO 360 mm : silence et fréquences soutenues sur rendus longs',
-      'Boîtier Airflow ouvert, parfait sessions prolongées'
+      'Core Ultra 7 265KF 20 cœurs + NPU',
+      'AIO 360 mm : silence et fréquences soutenues',
+      'Boîtier Airflow ouvert pour rendus longs'
     ],
     cons: [
-      'Architecture Arrow Lake : perf gaming moyenne (mais bonne en multi-thread)',
-      '16 Go VRAM peut limiter Octane/Redshift avec textures 8K multiples'
+      'Arrow Lake : perf gaming moyenne (mais multi-thread OK)',
+      '16 Go VRAM peut limiter Octane avec textures 8K'
+    ]
+  },
+  {
+    id: 'alienware-aurora-act1250',
+    name: 'Alienware Aurora ACT1250',
+    brand: 'Dell',
+    vendor: 'Dell.fr',
+    price: 2649,
+    priceNote: 'Soldes parfois -750 €',
+    tier: 'high',
+    inStock: true,
+    cpu: 'Intel Core Ultra 7 265KF (20c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5070 12 Go GDDR7',
+    aib: 'Variable',
+    vram: 12,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '1000W 80+ Platinum',
+    casing: 'Moyenne tour Alienware + AIO 240',
+    warranty: '1 an Premium Support',
+    url: 'https://www.dell.com/fr-fr/shop/notre-gamme-pro/ordinateur-de-bureau-gaming-alienware-aurora/spd/alienware-aurora-act1250-gaming-desktop',
+    pros: [
+      'Watercooling CPU d\'origine = silencieux',
+      'Alim 1000W Platinum',
+      'Design Alienware + très bonne ventilation',
+      'Premium Support à domicile'
+    ],
+    cons: [
+      'Châssis et carte mère 100% propriétaires Dell',
+      'Aucun upgrade GPU haut de gamme possible',
+      'Logiciel Alienware Command Center un peu lourd'
+    ]
+  },
+  {
+    id: 'cybertek-astra',
+    name: 'PC Gamer Cybertek ASTRA',
+    brand: 'Cybertek',
+    vendor: 'Cybertek',
+    price: 2799.99,
+    priceNote: 'Livraison 6-10 j',
+    tier: 'high',
+    inStock: true,
+    cpu: 'AMD Ryzen 7 9800X3D (8c/16t, X3D)',
+    cpuBrand: 'AMD',
+    gpu: 'ASUS PRIME RTX 5070 Ti 16 Go GDDR7',
+    aib: 'ASUS',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5 6000 Kingston Fury Beast RGB',
+    storage: 'SSD Kingston SNV3S 2 To NVMe Gen4',
+    psu: 'Corsair RM850e 850W Gold ATX 3.1',
+    casing: 'Corsair Frame 4000D RS ARGB',
+    warranty: '2 ans',
+    url: 'https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-2032-166035.aspx',
+    pros: [
+      'Ryzen 7 9800X3D : top single-thread + cache 96 Mo',
+      'VRAM 16 Go RTX 5070 Ti = Blender confortable',
+      'SSD 2 To NVMe + AIO 360 ARGB',
+      'AIB ASUS PRIME identifié'
+    ],
+    cons: [
+      '9800X3D optimisé jeux (un 9900X mieux pour rendu CPU pur)',
+      'Alim 850W limite si upgrade vers 5090'
+    ]
+  },
+  {
+    id: 'msi-mpg-infinite-z3-amd',
+    name: 'MSI MPG Infinite Z3 9NVRR7-286EU',
+    brand: 'MSI',
+    vendor: 'MSI Store FR',
+    price: 2899.99,
+    priceNote: 'Sur commande',
+    tier: 'high',
+    inStock: false,
+    cpu: 'AMD Ryzen 7 9800X3D (X3D)',
+    cpuBrand: 'AMD',
+    gpu: 'MSI RTX 5070 Ti 16 Go GDDR7',
+    aib: 'MSI',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '850W 80+ Gold',
+    casing: 'Mid-tower MSI',
+    warranty: '2 ans MSI',
+    url: 'https://fr-store.msi.com/collections/infinite-series',
+    pros: [
+      'Ryzen 7 X3D : avantage Maya/ZBrush viewport',
+      'RTX 5070 Ti 16 Go = top Cycles GPU',
+      'Consommation CPU plus basse que Intel Ultra'
+    ],
+    cons: [
+      'X3D moins fort que Intel Ultra 7 en rendu CPU pur',
+      '1 To stockage à compléter'
+    ]
+  },
+  {
+    id: 'msi-mpg-infinite-x3-5070ti',
+    name: 'MSI MPG Infinite X3 AI 2NVR7-036EU',
+    brand: 'MSI',
+    vendor: 'MSI Store FR',
+    price: 2999.99,
+    priceNote: 'Sur commande, rupture fréquente',
+    tier: 'high',
+    inStock: false,
+    cpu: 'Intel Core Ultra 7 265KF (20c)',
+    cpuBrand: 'Intel',
+    gpu: 'MSI Ventus RTX 5070 Ti 16 Go GDDR7',
+    aib: 'MSI',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '850W 80+ Gold',
+    casing: 'Mid-tower full ATX',
+    warranty: '2 ans MSI',
+    url: 'https://fr-store.msi.com/products/mpg-infinite-x3-ai-2nvr7-036eu-gaming-desktop',
+    pros: [
+      '5070 Ti 16 Go = Cycles + Redshift sans soucis VRAM',
+      'Core Ultra 7 récent',
+      'Alim 850W laisse marge upgrade 5080'
+    ],
+    cons: [
+      'Stockage 1 To juste pour 3D pro',
+      'AIO sur certaines révisions seulement'
+    ]
+  },
+  {
+    id: 'hp-omen-35l-5070ti',
+    name: 'HP Omen 35L GT16-0488nf (RTX 5070 Ti)',
+    brand: 'HP',
+    vendor: 'HP Store FR',
+    price: 2999,
+    priceNote: 'Promo ~2 600-2 800 € parfois',
+    tier: 'pro',
+    inStock: true,
+    cpu: 'Intel Core i7-14700F (20c/28t)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5070 Ti 16 Go GDDR7',
+    aib: 'Variable',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '1000W',
+    casing: 'Moyenne tour 35L',
+    warranty: '2 ans HP',
+    url: 'https://www.hp.com/fr-fr/shop/product.aspx?id=bc5k7ea&opt=abf&sel=dtp',
+    pros: [
+      'RTX 5070 Ti 16 Go = excellente VRAM pour 3D',
+      'Alim 1000W = très grosse marge upgrade',
+      'Combo i7-14700F + 5070 Ti = profil créatif 3-4 ans'
+    ],
+    cons: [
+      'Carte mère mATX propriétaire (BIOS limité)',
+      'Ventilateur CPU stock bruyant sous rendu intensif'
     ]
   },
 
-  // ============= 3200-4000 € =============
+  // ============= 3 200 - 4 200 € =============
+  {
+    id: 'pcspecialist-i9-5080',
+    name: 'PCSpecialist i9-14900KF + RTX 5080',
+    brand: 'PCSpecialist',
+    vendor: 'Rue du Commerce',
+    price: 3134.05,
+    priceNote: 'Réduit de 3 599 €, -12%',
+    tier: 'pro',
+    inStock: true,
+    cpu: 'Intel Core i9-14900KF (24c, 6 GHz boost)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5080 16 Go GDDR7',
+    aib: 'Variable',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5 6000 Corsair Vengeance',
+    storage: 'SSD M.2 NVMe 2 To',
+    psu: '850W Gold typique',
+    casing: 'PCS Lumin ARGB MID',
+    warranty: 'Légale FR + montage main',
+    url: 'https://www.rueducommerce.fr/p/m25088954677.html',
+    pros: [
+      'i9-14900KF 24 cœurs : top rendu CPU multi-thread',
+      'RTX 5080 16 Go = top Blender Cycles/OptiX',
+      'Montage à la main + stress test avant livraison'
+    ],
+    cons: [
+      'i9-14900KF chauffe (Intel Raptor Lake voltage)',
+      '32 Go peut devenir court pour Houdini sims'
+    ]
+  },
+  {
+    id: 'hp-omen-45l-5080-u7',
+    name: 'HP Omen 45L GT22-3048nf (Ultra 7 + RTX 5080)',
+    brand: 'HP',
+    vendor: 'HP Store FR',
+    price: 3199,
+    priceNote: 'En stock HP',
+    tier: 'pro',
+    inStock: true,
+    cpu: 'Intel Core Ultra 7 265K (20c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5080 16 Go GDDR7',
+    aib: 'Variable',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 2 To',
+    psu: '1200W 80+ Platinum',
+    casing: 'Full tower 45L + AIO 240',
+    warranty: '2 ans HP',
+    url: 'https://www.hp.com/fr-fr/shop/product.aspx?id=bc5l5ea&opt=abf&sel=dtp',
+    pros: [
+      'RTX 5080 16 Go = perf énorme Blender/Octane/Redshift',
+      'Châssis 45L excellente circulation d\'air',
+      'Alim 1200W Platinum, 2 To SSD',
+      'Carte mère ATX standard (rare chez HP)'
+    ],
+    cons: [
+      'Encombrement (45L)',
+      'Ventilateurs RGB peu utiles pour usage 3D pro'
+    ]
+  },
   {
     id: 'mat-balrog',
     name: 'PC Gamer Balrog (Win11)',
+    brand: 'Materiel.net',
     vendor: 'Materiel.net',
     price: 3249.95,
     priceNote: 'X3D + RTX 5080',
     tier: 'pro',
     inStock: true,
-    cpu: 'AMD Ryzen 7 9800X3D (8c/16t, X3D)',
+    cpu: 'AMD Ryzen 7 9800X3D (X3D)',
     cpuBrand: 'AMD',
     gpu: 'NVIDIA RTX 5080 16 Go GDDR7',
     aib: 'Variable',
     vram: 16,
     ram: 32,
-    ramType: 'DDR5 6000 CL36 Kingston Fury Beast',
+    ramType: 'DDR5 6000 CL36 Kingston Fury',
     storage: 'SSD NVMe M.2 PCIe 4.0 2 To',
     psu: 'Fox Spirit 850W 80+ Gold',
     casing: 'Fractal Design North TG',
     warranty: '5 ans',
     url: 'https://www.materiel.net/produit/202501220068.html',
     pros: [
-      'RTX 5080 + 16 Go VRAM : passage de cap en rendu GPU (Octane/Redshift)',
+      'RTX 5080 + 16 Go VRAM : passage de cap GPU rendu',
       'SSD 2 To NVMe : bibliothèques 3D confortables',
-      'X3D + 32 Go DDR5 = combo gagnant viewport + simulations'
+      'X3D + 32 Go DDR5 = combo viewport + simulations'
     ],
     cons: [
-      'PSU Fox Spirit moins premium qu\'un Corsair/be quiet à ce tarif',
-      'VRAM 16 Go déjà juste pour scènes Octane très lourdes'
+      'PSU Fox Spirit moins premium qu\'un Corsair/be quiet',
+      'VRAM 16 Go déjà juste pour Octane lourd'
     ]
   },
   {
     id: 'mat-draconys',
     name: 'PC Gamer Draconys (Win11)',
+    brand: 'Materiel.net',
     vendor: 'Materiel.net',
     price: 3379.95,
     priceNote: 'AIB Gigabyte WindForce',
     tier: 'pro',
     inStock: true,
-    cpu: 'AMD Ryzen 7 9800X3D (8c/16t, X3D)',
+    cpu: 'AMD Ryzen 7 9800X3D (X3D)',
     cpuBrand: 'AMD',
-    gpu: 'Gigabyte RTX 5080 WindForce 3 16 Go GDDR7',
+    gpu: 'Gigabyte RTX 5080 WindForce 3 16 Go',
     aib: 'Gigabyte',
     vram: 16,
     ram: 32,
@@ -340,47 +1275,112 @@ const PC_PREBUILT = [
     url: 'https://www.materiel.net/produit/202507170056.html',
     pros: [
       'AIB Gigabyte WindForce 3 : triple ventilateur silencieux',
-      'Samsung 990 PRO : vitesses NVMe top du marché',
-      'Boîtier Corsair 3500X excellent airflow'
+      'Samsung 990 PRO = top NVMe',
+      'Corsair 3500X excellent airflow'
     ],
     cons: [
-      'SSD 1 To seulement : prévoir SSD secondaire pour assets',
-      '32 Go RAM à étendre à 64 Go pour ZBrush HD + simulations FX'
+      'SSD 1 To seulement',
+      '32 Go RAM à étendre à 64 Go pour ZBrush HD'
+    ]
+  },
+  {
+    id: 'asus-rog-g700tf-5080',
+    name: 'ASUS ROG G700TF (Ultra 7 + RTX 5080)',
+    brand: 'ASUS',
+    vendor: 'ASUS Store / idealo',
+    price: 3499,
+    priceNote: 'Estimation mai 2026 : 3 281-3 499 €',
+    tier: 'pro',
+    inStock: false,
+    cpu: 'Intel Core Ultra 7 265KF (20c)',
+    cpuBrand: 'Intel',
+    gpu: 'ASUS ROG RTX 5080 16 Go GDDR7',
+    aib: 'ASUS',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '850W 80+ Gold ROG',
+    casing: 'Full-tower ROG',
+    warranty: '2 ans ASUS',
+    url: 'https://rog.asus.com/be-fr/desktops/full-tower/rog-g700-2025-g700/spec/',
+    pros: [
+      '5080 16 Go = très haut niveau OptiX/CUDA',
+      'Châssis full-tower = upgrade illimité',
+      'Format ATX standard'
+    ],
+    cons: [
+      'Configs entrée parfois avec RTX 5070 (vérifier SKU)',
+      'Encombrement notable',
+      'Tarif store officiel souvent au-dessus idealo'
+    ]
+  },
+  {
+    id: 'msi-mpg-infinite-x3-5080',
+    name: 'MSI MPG Infinite X3 AI 2NVV7-037FR',
+    brand: 'MSI',
+    vendor: 'Darty / Fnac',
+    price: 3799.99,
+    priceNote: 'Vu à 2 999 € en promo idealo',
+    tier: 'pro',
+    inStock: true,
+    cpu: 'Intel Core Ultra 7 265KF (20c)',
+    cpuBrand: 'Intel',
+    gpu: 'MSI Ventus 3X RTX 5080 16 Go GDDR7',
+    aib: 'MSI',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '850W 80+ Gold',
+    casing: 'Mid-tower MSI + AIO 240',
+    warranty: '2 ans MSI',
+    url: 'https://www.darty.com/nav/achat/informatique/bureau-bureau/bureau/msi_infx3_g_u7_32_1_5080.html',
+    pros: [
+      'RTX 5080 = palier majeur Cycles/Redshift/Octane',
+      'Carte mère MSI ATX standard (vraie évolutivité)',
+      'AIO 240 CPU, Wi-Fi 6E + 5 GbE'
+    ],
+    cons: [
+      '1 To insuffisant pour pipeline 3D pro',
+      'Design RGB peut déplaire en milieu pro'
     ]
   },
   {
     id: 'mat-meteora',
     name: 'PC Pro Meteora IA (Win11)',
+    brand: 'Materiel.net',
     vendor: 'Materiel.net',
     price: 3949.95,
-    priceNote: 'Gamme professionnelle, stock 15+ jours',
+    priceNote: 'Gamme professionnelle, stock 15+ j',
     tier: 'pro',
     inStock: false,
-    cpu: 'AMD Ryzen 7 9800X3D (8c/16t, X3D)',
+    cpu: 'AMD Ryzen 7 9800X3D (X3D)',
     cpuBrand: 'AMD',
-    gpu: 'Gigabyte RTX 5080 WindForce OC SFF 16 Go GDDR7',
+    gpu: 'Gigabyte RTX 5080 WindForce OC SFF 16 Go',
     aib: 'Gigabyte',
     vram: 16,
     ram: 64,
     ramType: 'DDR5 6000 Crucial',
     storage: 'SSD Samsung 990 PRO 2 To NVMe Gen4',
-    psu: 'Corsair RMe ATX 3.1 850W 80+ Gold',
+    psu: 'Corsair RMe ATX 3.1 850W Gold',
     casing: 'Fractal Design North Mesh',
     warranty: '5 ans Materiel.net',
     url: 'https://www.materiel.net/produit/202509100004.html',
     pros: [
-      '64 Go DDR5 : sweet spot scènes lourdes (Houdini, ZBrush HD, Arnold)',
-      '2 To Samsung 990 PRO + RTX 5080 + X3D = workstation hybride',
-      'Gamme "professionnel" Materiel.net : montage soigné'
+      '64 Go DDR5 : sweet spot scènes lourdes (Houdini, ZBrush HD)',
+      '2 To Samsung 990 PRO + RTX 5080 + X3D',
+      'Gamme "professionnel" Materiel.net'
     ],
     cons: [
-      'GPU format SFF compact : refroidissement légèrement plus bruyant',
-      'Délai stock 15+ jours = pas idéal si besoin immédiat'
+      'GPU format SFF : refroidissement plus bruyant',
+      'Délai stock 15+ jours'
     ]
   },
   {
     id: 'ldlc-zen-top',
     name: 'LDLC PC Zen-M5 X3D Top Perfect',
+    brand: 'LDLC',
     vendor: 'LDLC',
     price: 3999.95,
     priceNote: '4 199,95 € avec Win11',
@@ -395,17 +1395,81 @@ const PC_PREBUILT = [
     ramType: 'DDR5 5600',
     storage: 'SSD 1 To Gen4 + 2 To secondaire',
     psu: '1000W',
-    casing: 'Moyen-tour verre trempé + AIO 360 mm',
+    casing: 'Moyen-tour + AIO 360 mm',
     warranty: '5 ans LDLC',
     url: 'https://www.ldlc.com/fiche/PB00675804.html',
     pros: [
-      'Ryzen 9 9950X3D 16 cœurs avec cache 3D = top tier rendu CPU + viewport',
-      '3 To SSD total : aucune limite pour caches/bibliothèques',
-      'Alim 1000W = upgrade RTX 5090 envisageable plus tard'
+      'Ryzen 9 9950X3D 16 cœurs : top tier rendu CPU + viewport',
+      '3 To SSD total : aucune limite',
+      'Alim 1000W = upgrade RTX 5090 envisageable'
     ],
     cons: [
-      '32 Go RAM seulement à ce prix, à passer à 64 Go',
-      'DDR5 5600 légèrement en retrait vs 6000 ailleurs'
+      '32 Go RAM seulement à ce prix',
+      'DDR5 5600 légèrement en retrait vs 6000'
+    ]
+  },
+  {
+    id: 'acer-orion-7000-po7',
+    name: 'Acer Predator Orion 7000 PO7-660',
+    brand: 'Acer',
+    vendor: 'Acer Store / Fnac MP',
+    price: 4199,
+    priceNote: 'idealo descente à ~3 700 €',
+    tier: 'pro',
+    inStock: true,
+    cpu: 'Intel Core Ultra 9 285K (24c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5080 16 Go GDDR7',
+    aib: 'Acer',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 1 To',
+    psu: '1000W 80+ Gold + AIO 360',
+    casing: 'Full-tower Predator',
+    warranty: '2 ans Acer',
+    url: 'https://store.acer.com/fr-fr/predator-orion-7000-pc-gamer-po7-660-noir',
+    pros: [
+      'Core Ultra 9 285K = rendu CPU monstre (Cycles/V-Ray)',
+      'AIO 360 : thermals tenue sur rendus longs',
+      'Châssis grand format évolutif'
+    ],
+    cons: [
+      'Carte mère Acer propriétaire (mITX/mATX custom)',
+      '1 To stockage juste à ce tarif',
+      'Connecteurs alim partiellement propriétaires'
+    ]
+  },
+  {
+    id: 'hp-omen-45l-5080-u9',
+    name: 'HP Omen 45L GT22-3042nf (Ultra 9 + RTX 5080)',
+    brand: 'HP',
+    vendor: 'HP Store FR / Rakuten',
+    price: 4250,
+    priceNote: 'Estimation mai 2026 : 4 100-4 400 €',
+    tier: 'pro',
+    inStock: true,
+    cpu: 'Intel Core Ultra 9 285K (24c)',
+    cpuBrand: 'Intel',
+    gpu: 'NVIDIA RTX 5080 16 Go GDDR7',
+    aib: 'Variable',
+    vram: 16,
+    ram: 32,
+    ramType: 'DDR5',
+    storage: 'SSD NVMe 2 To',
+    psu: '1200W 80+ Platinum',
+    casing: 'Full tower 45L + AIO 240',
+    warranty: '2 ans HP',
+    url: 'https://www.hp.com/fr-fr/shop/product.aspx?id=bc5l4ea&opt=abf&sel=dtp',
+    pros: [
+      'Ultra 9 285K = monstre Blender CPU + Arnold/V-Ray',
+      'Combo Ultra 9 + RTX 5080 = couvre tous workflows 3D',
+      'Alim 1200W, 2 To SSD'
+    ],
+    cons: [
+      'Carte mère propriétaire HP avec BIOS bridé',
+      'Format 45L très encombrant',
+      'AIO 240 juste pour Ultra 9 285K à 100 %'
     ]
   }
 ];
@@ -438,8 +1502,8 @@ const CUSTOM_BUILDS = {
     ],
     cons: [
       'CPU Ryzen 5 6 cœurs : rendu CPU plus lent que Ryzen 7/9',
-      'Pas de ventirad upgrade : OK 7600 mais limite si upgrade CPU',
-      'SSD 1 To unique : prévoir disque secondaire pour assets'
+      'Pas de ventirad upgrade : limite si upgrade CPU',
+      'SSD 1 To unique : prévoir disque secondaire'
     ]
   },
   balanced: {
@@ -492,9 +1556,9 @@ const CUSTOM_BUILDS = {
       'Alim 1000W ATX 3.1 prête pour RTX 5090 future'
     ],
     cons: [
-      'Investissement lourd : 4000 € + écran pro = 4500-5000 € total',
+      'Investissement lourd : 4188 € + écran pro = 4500-5000 € total',
       '16 Go VRAM reste la limite pour très grosses scènes Octane',
-      'SSD Gen5 chauffe : dissipateur essentiel (carte mère ou aftermarket)'
+      'SSD Gen5 chauffe : dissipateur essentiel'
     ]
   }
 };
@@ -504,7 +1568,6 @@ const CUSTOM_BUILDS = {
 // ============================================================
 
 const SCREENS = [
-  // BUDGET
   {
     id: 'iiyama-xub2792qsu',
     name: 'iiyama ProLite XUB2792QSU-B6',
@@ -564,8 +1627,6 @@ const SCREENS = [
       'Pas de calibrage usine'
     ]
   },
-
-  // MID
   {
     id: 'asus-pa278cgv',
     name: 'ASUS ProArt PA278CGV',
@@ -627,6 +1688,35 @@ const SCREENS = [
     ]
   },
   {
+    id: 'lg-27up850n',
+    name: 'LG UltraFine 27UP850N-W',
+    brand: 'LG',
+    price: 410,
+    priceNote: '4K USB-C 96W',
+    tier: 'mid',
+    size: '27"',
+    res: '3840x2160',
+    resLabel: '4K',
+    panel: 'IPS',
+    hz: 60,
+    srgb: 100,
+    dcip3: 95,
+    adobergb: 80,
+    calibrated: false,
+    hdr: 'DisplayHDR 400',
+    connect: 'HDMI x2, DP, USB-C 96W, hub USB 3.0',
+    url: 'https://www.ldlc.com/fiche/PB00501096.html',
+    pros: [
+      '4K 27" abordable avec DCI-P3 95 %',
+      'USB-C 96 W : alimente la plupart des laptops créa',
+      'Finition blanche élégante'
+    ],
+    cons: [
+      'Pas de calibrage usine certifié avec rapport',
+      'HDR 400 limité'
+    ]
+  },
+  {
     id: 'benq-pd2705u',
     name: 'BenQ DesignVue PD2705U',
     brand: 'BenQ',
@@ -656,37 +1746,6 @@ const SCREENS = [
       'Luminosité moyenne (~250 cd/m²)'
     ]
   },
-  {
-    id: 'lg-27up850n',
-    name: 'LG UltraFine 27UP850N-W',
-    brand: 'LG',
-    price: 410,
-    priceNote: '4K USB-C 96W',
-    tier: 'mid',
-    size: '27"',
-    res: '3840x2160',
-    resLabel: '4K',
-    panel: 'IPS',
-    hz: 60,
-    srgb: 100,
-    dcip3: 95,
-    adobergb: 80,
-    calibrated: false,
-    hdr: 'DisplayHDR 400',
-    connect: 'HDMI x2, DP, USB-C 96W, hub USB 3.0',
-    url: 'https://www.ldlc.com/fiche/PB00501096.html',
-    pros: [
-      '4K 27" abordable avec DCI-P3 95 %',
-      'USB-C 96 W : alimente la plupart des laptops créa',
-      'Finition blanche élégante'
-    ],
-    cons: [
-      'Pas de calibrage usine certifié avec rapport',
-      'HDR 400 limité'
-    ]
-  },
-
-  // PRO
   {
     id: 'asus-pa279crv',
     name: 'ASUS ProArt PA279CRV',
